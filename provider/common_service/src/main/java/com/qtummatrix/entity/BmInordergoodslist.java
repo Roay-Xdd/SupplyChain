@@ -1,61 +1,59 @@
 package com.qtummatrix.entity;
 
-import java.math.BigDecimal;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.Version;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 
 /**
- * <p>
- * 
- * </p>
- *
- * @author ${author}
- * @since 2020-07-06
+ * bm_inordergoodslist
+ * @author 
  */
-@ApiModel(value="BmInordergoodslist对象", description="")
 public class BmInordergoodslist implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    @ApiModelProperty(value = "������Ʒid")
-    @TableId(value = "id", type = IdType.ID_WORKER)
+    /**
+     * ������Ʒid
+     */
     private Integer id;
 
-    @ApiModelProperty(value = "����id")
-    @TableField("orderId")
-    private String orderId;
+    /**
+     * ����id
+     */
+    private String orderid;
 
-    @ApiModelProperty(value = "��Ʒid")
-    @TableField("goodsId")
-    private Integer goodsId;
+    /**
+     * ��Ʒid
+     */
+    private Integer goodsid;
 
-    @ApiModelProperty(value = "���id")
-    @TableField("spId")
-    private Integer spId;
+    /**
+     * ���id
+     */
+    private Integer spid;
 
-    @ApiModelProperty(value = "�������")
+    /**
+     * �������
+     */
     private String sname;
 
-    @ApiModelProperty(value = "��Ʒ����")
-    @TableField("goodsName")
-    private String goodsName;
+    /**
+     * ��Ʒ����
+     */
+    private String goodsname;
 
-    @ApiModelProperty(value = "��ƷͼƬ")
-    @TableField("goodsImg")
-    private String goodsImg;
+    /**
+     * ��ƷͼƬ
+     */
+    private String goodsimg;
 
-    @ApiModelProperty(value = "��������")
-    @TableField("buyNum")
-    private Integer buyNum;
+    /**
+     * ��������
+     */
+    private Integer buynum;
 
-    @ApiModelProperty(value = "������")
+    /**
+     * ������
+     */
     private BigDecimal price;
 
+    private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;
@@ -65,28 +63,28 @@ public class BmInordergoodslist implements Serializable {
         this.id = id;
     }
 
-    public String getOrderId() {
-        return orderId;
+    public String getOrderid() {
+        return orderid;
     }
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
+    public void setOrderid(String orderid) {
+        this.orderid = orderid;
     }
 
-    public Integer getGoodsId() {
-        return goodsId;
+    public Integer getGoodsid() {
+        return goodsid;
     }
 
-    public void setGoodsId(Integer goodsId) {
-        this.goodsId = goodsId;
+    public void setGoodsid(Integer goodsid) {
+        this.goodsid = goodsid;
     }
 
-    public Integer getSpId() {
-        return spId;
+    public Integer getSpid() {
+        return spid;
     }
 
-    public void setSpId(Integer spId) {
-        this.spId = spId;
+    public void setSpid(Integer spid) {
+        this.spid = spid;
     }
 
     public String getSname() {
@@ -97,28 +95,28 @@ public class BmInordergoodslist implements Serializable {
         this.sname = sname;
     }
 
-    public String getGoodsName() {
-        return goodsName;
+    public String getGoodsname() {
+        return goodsname;
     }
 
-    public void setGoodsName(String goodsName) {
-        this.goodsName = goodsName;
+    public void setGoodsname(String goodsname) {
+        this.goodsname = goodsname;
     }
 
-    public String getGoodsImg() {
-        return goodsImg;
+    public String getGoodsimg() {
+        return goodsimg;
     }
 
-    public void setGoodsImg(String goodsImg) {
-        this.goodsImg = goodsImg;
+    public void setGoodsimg(String goodsimg) {
+        this.goodsimg = goodsimg;
     }
 
-    public Integer getBuyNum() {
-        return buyNum;
+    public Integer getBuynum() {
+        return buynum;
     }
 
-    public void setBuyNum(Integer buyNum) {
-        this.buyNum = buyNum;
+    public void setBuynum(Integer buynum) {
+        this.buynum = buynum;
     }
 
     public BigDecimal getPrice() {
@@ -130,17 +128,61 @@ public class BmInordergoodslist implements Serializable {
     }
 
     @Override
+    public boolean equals(Object that) {
+        if (this == that) {
+            return true;
+        }
+        if (that == null) {
+            return false;
+        }
+        if (getClass() != that.getClass()) {
+            return false;
+        }
+        BmInordergoodslist other = (BmInordergoodslist) that;
+        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
+            && (this.getOrderid() == null ? other.getOrderid() == null : this.getOrderid().equals(other.getOrderid()))
+            && (this.getGoodsid() == null ? other.getGoodsid() == null : this.getGoodsid().equals(other.getGoodsid()))
+            && (this.getSpid() == null ? other.getSpid() == null : this.getSpid().equals(other.getSpid()))
+            && (this.getSname() == null ? other.getSname() == null : this.getSname().equals(other.getSname()))
+            && (this.getGoodsname() == null ? other.getGoodsname() == null : this.getGoodsname().equals(other.getGoodsname()))
+            && (this.getGoodsimg() == null ? other.getGoodsimg() == null : this.getGoodsimg().equals(other.getGoodsimg()))
+            && (this.getBuynum() == null ? other.getBuynum() == null : this.getBuynum().equals(other.getBuynum()))
+            && (this.getPrice() == null ? other.getPrice() == null : this.getPrice().equals(other.getPrice()));
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+        result = prime * result + ((getOrderid() == null) ? 0 : getOrderid().hashCode());
+        result = prime * result + ((getGoodsid() == null) ? 0 : getGoodsid().hashCode());
+        result = prime * result + ((getSpid() == null) ? 0 : getSpid().hashCode());
+        result = prime * result + ((getSname() == null) ? 0 : getSname().hashCode());
+        result = prime * result + ((getGoodsname() == null) ? 0 : getGoodsname().hashCode());
+        result = prime * result + ((getGoodsimg() == null) ? 0 : getGoodsimg().hashCode());
+        result = prime * result + ((getBuynum() == null) ? 0 : getBuynum().hashCode());
+        result = prime * result + ((getPrice() == null) ? 0 : getPrice().hashCode());
+        return result;
+    }
+
+    @Override
     public String toString() {
-        return "BmInordergoodslist{" +
-        "id=" + id +
-        ", orderId=" + orderId +
-        ", goodsId=" + goodsId +
-        ", spId=" + spId +
-        ", sname=" + sname +
-        ", goodsName=" + goodsName +
-        ", goodsImg=" + goodsImg +
-        ", buyNum=" + buyNum +
-        ", price=" + price +
-        "}";
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", id=").append(id);
+        sb.append(", orderid=").append(orderid);
+        sb.append(", goodsid=").append(goodsid);
+        sb.append(", spid=").append(spid);
+        sb.append(", sname=").append(sname);
+        sb.append(", goodsname=").append(goodsname);
+        sb.append(", goodsimg=").append(goodsimg);
+        sb.append(", buynum=").append(buynum);
+        sb.append(", price=").append(price);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
+        sb.append("]");
+        return sb.toString();
     }
 }

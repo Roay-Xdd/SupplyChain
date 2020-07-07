@@ -1,39 +1,30 @@
 package com.qtummatrix.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.Version;
-import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * <p>
- * 
- * </p>
- *
- * @author ${author}
- * @since 2020-07-06
+ * role_permission
+ * @author 
  */
-@ApiModel(value="RolePermission对象", description="")
 public class RolePermission implements Serializable {
+    /**
+     * ��������ID
+     */
+    private Integer levelid;
+
+    /**
+     * Ȩ��ID
+     */
+    private Integer permissionid;
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "��������ID")
-    @TableId(value = "levelId", type = IdType.AUTO)
-    private Integer levelId;
-
-    @ApiModelProperty(value = "Ȩ��ID")
-    private Integer permissionid;
-
-
-    public Integer getLevelId() {
-        return levelId;
+    public Integer getLevelid() {
+        return levelid;
     }
 
-    public void setLevelId(Integer levelId) {
-        this.levelId = levelId;
+    public void setLevelid(Integer levelid) {
+        this.levelid = levelid;
     }
 
     public Integer getPermissionid() {
@@ -45,10 +36,40 @@ public class RolePermission implements Serializable {
     }
 
     @Override
+    public boolean equals(Object that) {
+        if (this == that) {
+            return true;
+        }
+        if (that == null) {
+            return false;
+        }
+        if (getClass() != that.getClass()) {
+            return false;
+        }
+        RolePermission other = (RolePermission) that;
+        return (this.getLevelid() == null ? other.getLevelid() == null : this.getLevelid().equals(other.getLevelid()))
+            && (this.getPermissionid() == null ? other.getPermissionid() == null : this.getPermissionid().equals(other.getPermissionid()));
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((getLevelid() == null) ? 0 : getLevelid().hashCode());
+        result = prime * result + ((getPermissionid() == null) ? 0 : getPermissionid().hashCode());
+        return result;
+    }
+
+    @Override
     public String toString() {
-        return "RolePermission{" +
-        "levelId=" + levelId +
-        ", permissionid=" + permissionid +
-        "}";
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", levelid=").append(levelid);
+        sb.append(", permissionid=").append(permissionid);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
+        sb.append("]");
+        return sb.toString();
     }
 }

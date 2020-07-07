@@ -1,68 +1,63 @@
 package com.qtummatrix.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import java.util.Date;
-import com.baomidou.mybatisplus.annotation.Version;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Date;
 
 /**
- * <p>
- * 
- * </p>
- *
- * @author ${author}
- * @since 2020-07-06
+ * bm_goods
+ * @author 
  */
-@ApiModel(value="BmGoods对象", description="")
 public class BmGoods implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    @ApiModelProperty(value = "��Ʒ���")
-    @TableField("goodsCode")
-    private String goodsCode;
+    /**
+     * ��Ʒ���
+     */
+    private String goodscode;
 
-    @ApiModelProperty(value = "��Ʒ����")
-    @TableField("goodsName")
-    private String goodsName;
+    /**
+     * ��Ʒ����
+     */
+    private String goodsname;
 
-    @ApiModelProperty(value = "�ֿ���")
-    @TableField("warehouseCode")
-    private String warehouseCode;
+    /**
+     * �ֿ���
+     */
+    private String warehousecode;
 
-    @ApiModelProperty(value = "��Ʒ����id")
-    @TableField("categoryId")
-    private Integer categoryId;
+    /**
+     * ��Ʒ����id
+     */
+    private Integer categoryid;
 
-    @ApiModelProperty(value = "Ʒ��id")
-    @TableField("brandId")
-    private Integer brandId;
+    /**
+     * Ʒ��id
+     */
+    private Integer brandid;
 
-    @ApiModelProperty(value = "����")
+    /**
+     * ����
+     */
     private Integer sort;
 
-    @ApiModelProperty(value = "��Ʒ����")
-    @TableField("goodsDetails")
-    private String goodsDetails;
+    /**
+     * ��Ʒ����
+     */
+    private String goodsdetails;
 
-    @ApiModelProperty(value = "��Ʒ����")
-    @TableField("goodsMark")
-    private String goodsMark;
+    private Date createtime;
 
-    @TableField("createTime")
-    private Date createTime;
+    /**
+     * ɾ����� 0.δɾ�� 1.��ɾ��
+     */
+    private Integer isdeleted;
 
-    @ApiModelProperty(value = "ɾ����� 0.δɾ�� 1.��ɾ��")
-    @TableField("isDeleted")
-    private Integer isDeleted;
+    /**
+     * ��Ʒ����
+     */
+    private String goodsmark;
 
+    private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;
@@ -72,44 +67,44 @@ public class BmGoods implements Serializable {
         this.id = id;
     }
 
-    public String getGoodsCode() {
-        return goodsCode;
+    public String getGoodscode() {
+        return goodscode;
     }
 
-    public void setGoodsCode(String goodsCode) {
-        this.goodsCode = goodsCode;
+    public void setGoodscode(String goodscode) {
+        this.goodscode = goodscode;
     }
 
-    public String getGoodsName() {
-        return goodsName;
+    public String getGoodsname() {
+        return goodsname;
     }
 
-    public void setGoodsName(String goodsName) {
-        this.goodsName = goodsName;
+    public void setGoodsname(String goodsname) {
+        this.goodsname = goodsname;
     }
 
-    public String getWarehouseCode() {
-        return warehouseCode;
+    public String getWarehousecode() {
+        return warehousecode;
     }
 
-    public void setWarehouseCode(String warehouseCode) {
-        this.warehouseCode = warehouseCode;
+    public void setWarehousecode(String warehousecode) {
+        this.warehousecode = warehousecode;
     }
 
-    public Integer getCategoryId() {
-        return categoryId;
+    public Integer getCategoryid() {
+        return categoryid;
     }
 
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
+    public void setCategoryid(Integer categoryid) {
+        this.categoryid = categoryid;
     }
 
-    public Integer getBrandId() {
-        return brandId;
+    public Integer getBrandid() {
+        return brandid;
     }
 
-    public void setBrandId(Integer brandId) {
-        this.brandId = brandId;
+    public void setBrandid(Integer brandid) {
+        this.brandid = brandid;
     }
 
     public Integer getSort() {
@@ -120,52 +115,100 @@ public class BmGoods implements Serializable {
         this.sort = sort;
     }
 
-    public String getGoodsDetails() {
-        return goodsDetails;
+    public String getGoodsdetails() {
+        return goodsdetails;
     }
 
-    public void setGoodsDetails(String goodsDetails) {
-        this.goodsDetails = goodsDetails;
+    public void setGoodsdetails(String goodsdetails) {
+        this.goodsdetails = goodsdetails;
     }
 
-    public String getGoodsMark() {
-        return goodsMark;
+    public Date getCreatetime() {
+        return createtime;
     }
 
-    public void setGoodsMark(String goodsMark) {
-        this.goodsMark = goodsMark;
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public Integer getIsdeleted() {
+        return isdeleted;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setIsdeleted(Integer isdeleted) {
+        this.isdeleted = isdeleted;
     }
 
-    public Integer getIsDeleted() {
-        return isDeleted;
+    public String getGoodsmark() {
+        return goodsmark;
     }
 
-    public void setIsDeleted(Integer isDeleted) {
-        this.isDeleted = isDeleted;
+    public void setGoodsmark(String goodsmark) {
+        this.goodsmark = goodsmark;
+    }
+
+    @Override
+    public boolean equals(Object that) {
+        if (this == that) {
+            return true;
+        }
+        if (that == null) {
+            return false;
+        }
+        if (getClass() != that.getClass()) {
+            return false;
+        }
+        BmGoods other = (BmGoods) that;
+        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
+            && (this.getGoodscode() == null ? other.getGoodscode() == null : this.getGoodscode().equals(other.getGoodscode()))
+            && (this.getGoodsname() == null ? other.getGoodsname() == null : this.getGoodsname().equals(other.getGoodsname()))
+            && (this.getWarehousecode() == null ? other.getWarehousecode() == null : this.getWarehousecode().equals(other.getWarehousecode()))
+            && (this.getCategoryid() == null ? other.getCategoryid() == null : this.getCategoryid().equals(other.getCategoryid()))
+            && (this.getBrandid() == null ? other.getBrandid() == null : this.getBrandid().equals(other.getBrandid()))
+            && (this.getSort() == null ? other.getSort() == null : this.getSort().equals(other.getSort()))
+            && (this.getGoodsdetails() == null ? other.getGoodsdetails() == null : this.getGoodsdetails().equals(other.getGoodsdetails()))
+            && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
+            && (this.getIsdeleted() == null ? other.getIsdeleted() == null : this.getIsdeleted().equals(other.getIsdeleted()))
+            && (this.getGoodsmark() == null ? other.getGoodsmark() == null : this.getGoodsmark().equals(other.getGoodsmark()));
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+        result = prime * result + ((getGoodscode() == null) ? 0 : getGoodscode().hashCode());
+        result = prime * result + ((getGoodsname() == null) ? 0 : getGoodsname().hashCode());
+        result = prime * result + ((getWarehousecode() == null) ? 0 : getWarehousecode().hashCode());
+        result = prime * result + ((getCategoryid() == null) ? 0 : getCategoryid().hashCode());
+        result = prime * result + ((getBrandid() == null) ? 0 : getBrandid().hashCode());
+        result = prime * result + ((getSort() == null) ? 0 : getSort().hashCode());
+        result = prime * result + ((getGoodsdetails() == null) ? 0 : getGoodsdetails().hashCode());
+        result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
+        result = prime * result + ((getIsdeleted() == null) ? 0 : getIsdeleted().hashCode());
+        result = prime * result + ((getGoodsmark() == null) ? 0 : getGoodsmark().hashCode());
+        return result;
     }
 
     @Override
     public String toString() {
-        return "BmGoods{" +
-        "id=" + id +
-        ", goodsCode=" + goodsCode +
-        ", goodsName=" + goodsName +
-        ", warehouseCode=" + warehouseCode +
-        ", categoryId=" + categoryId +
-        ", brandId=" + brandId +
-        ", sort=" + sort +
-        ", goodsDetails=" + goodsDetails +
-        ", goodsMark=" + goodsMark +
-        ", createTime=" + createTime +
-        ", isDeleted=" + isDeleted +
-        "}";
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", id=").append(id);
+        sb.append(", goodscode=").append(goodscode);
+        sb.append(", goodsname=").append(goodsname);
+        sb.append(", warehousecode=").append(warehousecode);
+        sb.append(", categoryid=").append(categoryid);
+        sb.append(", brandid=").append(brandid);
+        sb.append(", sort=").append(sort);
+        sb.append(", goodsdetails=").append(goodsdetails);
+        sb.append(", createtime=").append(createtime);
+        sb.append(", isdeleted=").append(isdeleted);
+        sb.append(", goodsmark=").append(goodsmark);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
+        sb.append("]");
+        return sb.toString();
     }
 }

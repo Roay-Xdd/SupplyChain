@@ -1,44 +1,33 @@
 package com.qtummatrix.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import java.util.Date;
-import com.baomidou.mybatisplus.annotation.Version;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Date;
 
 /**
- * <p>
- * 
- * </p>
- *
- * @author ${author}
- * @since 2020-07-06
+ * bm_sellermechanism
+ * @author 
  */
-@ApiModel(value="BmSellermechanism对象", description="")
 public class BmSellermechanism implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    @ApiModelProperty(value = "����id")
-    @TableField("sellerId")
-    private Integer sellerId;
+    /**
+     * ����id
+     */
+    private Integer sellerid;
 
-    @ApiModelProperty(value = "����id")
-    @TableField("mechanismId")
-    private Integer mechanismId;
+    /**
+     * ����id
+     */
+    private Integer mechanismid;
 
     private Date createtime;
 
-    @ApiModelProperty(value = "ɾ����� 0.δɾ�� 1.��ɾ��")
-    @TableField("isDeleted")
-    private Integer isDeleted;
+    /**
+     * ɾ����� 0.δɾ�� 1.��ɾ��
+     */
+    private Integer isdeleted;
 
+    private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;
@@ -48,20 +37,20 @@ public class BmSellermechanism implements Serializable {
         this.id = id;
     }
 
-    public Integer getSellerId() {
-        return sellerId;
+    public Integer getSellerid() {
+        return sellerid;
     }
 
-    public void setSellerId(Integer sellerId) {
-        this.sellerId = sellerId;
+    public void setSellerid(Integer sellerid) {
+        this.sellerid = sellerid;
     }
 
-    public Integer getMechanismId() {
-        return mechanismId;
+    public Integer getMechanismid() {
+        return mechanismid;
     }
 
-    public void setMechanismId(Integer mechanismId) {
-        this.mechanismId = mechanismId;
+    public void setMechanismid(Integer mechanismid) {
+        this.mechanismid = mechanismid;
     }
 
     public Date getCreatetime() {
@@ -72,22 +61,58 @@ public class BmSellermechanism implements Serializable {
         this.createtime = createtime;
     }
 
-    public Integer getIsDeleted() {
-        return isDeleted;
+    public Integer getIsdeleted() {
+        return isdeleted;
     }
 
-    public void setIsDeleted(Integer isDeleted) {
-        this.isDeleted = isDeleted;
+    public void setIsdeleted(Integer isdeleted) {
+        this.isdeleted = isdeleted;
+    }
+
+    @Override
+    public boolean equals(Object that) {
+        if (this == that) {
+            return true;
+        }
+        if (that == null) {
+            return false;
+        }
+        if (getClass() != that.getClass()) {
+            return false;
+        }
+        BmSellermechanism other = (BmSellermechanism) that;
+        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
+            && (this.getSellerid() == null ? other.getSellerid() == null : this.getSellerid().equals(other.getSellerid()))
+            && (this.getMechanismid() == null ? other.getMechanismid() == null : this.getMechanismid().equals(other.getMechanismid()))
+            && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
+            && (this.getIsdeleted() == null ? other.getIsdeleted() == null : this.getIsdeleted().equals(other.getIsdeleted()));
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+        result = prime * result + ((getSellerid() == null) ? 0 : getSellerid().hashCode());
+        result = prime * result + ((getMechanismid() == null) ? 0 : getMechanismid().hashCode());
+        result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
+        result = prime * result + ((getIsdeleted() == null) ? 0 : getIsdeleted().hashCode());
+        return result;
     }
 
     @Override
     public String toString() {
-        return "BmSellermechanism{" +
-        "id=" + id +
-        ", sellerId=" + sellerId +
-        ", mechanismId=" + mechanismId +
-        ", createtime=" + createtime +
-        ", isDeleted=" + isDeleted +
-        "}";
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", id=").append(id);
+        sb.append(", sellerid=").append(sellerid);
+        sb.append(", mechanismid=").append(mechanismid);
+        sb.append(", createtime=").append(createtime);
+        sb.append(", isdeleted=").append(isdeleted);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
+        sb.append("]");
+        return sb.toString();
     }
 }

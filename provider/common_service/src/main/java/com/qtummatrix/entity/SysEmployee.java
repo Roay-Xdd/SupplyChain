@@ -1,72 +1,76 @@
 package com.qtummatrix.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import java.util.Date;
-import com.baomidou.mybatisplus.annotation.Version;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Date;
 
 /**
- * <p>
- * 
- * </p>
- *
- * @author ${author}
- * @since 2020-07-06
+ * sys_employee
+ * @author 
  */
-@ApiModel(value="SysEmployee对象", description="")
 public class SysEmployee implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    @ApiModelProperty(value = "Ա�����")
-    @TableField("employeeCode")
-    private String employeeCode;
+    /**
+     * Ա�����
+     */
+    private String employeecode;
 
-    @ApiModelProperty(value = "Ա������")
+    /**
+     * Ա������
+     */
     private String ename;
 
-    @ApiModelProperty(value = "�ֿ���")
-    @TableField("warehouseCode")
-    private String warehouseCode;
+    /**
+     * �ֿ���
+     */
+    private String warehousecode;
 
-    @ApiModelProperty(value = "�ֻ�����")
+    /**
+     * �ֻ�����
+     */
     private String tel;
 
-    @ApiModelProperty(value = "�Ա� 0.Ů 1.��")
+    /**
+     * �Ա� 0.Ů 1.��
+     */
     private Integer sex;
 
-    @ApiModelProperty(value = "��������")
+    /**
+     * ��������
+     */
     private Date birthday;
 
-    @ApiModelProperty(value = "��½����")
+    /**
+     * ��½����
+     */
     private String password;
 
-    @ApiModelProperty(value = "��½��ʶ")
+    /**
+     * ��½��ʶ
+     */
     private String token;
 
-    @ApiModelProperty(value = "Ա����λ 1.ִ�о��� 2.���۴��� 3.�ֿ������Ա 4.����������Ա")
-    @TableField("positionId")
-    private String positionId;
+    /**
+     * Ա����λ 1.ִ�о��� 2.���۴��� 3.�ֿ������Ա 4.����������Ա
+     */
+    private String positionid;
 
-    @ApiModelProperty(value = "ͷ��")
-    @TableField("imageUrl")
-    private String imageUrl;
+    /**
+     * ͷ��
+     */
+    private String imageurl;
 
-    @ApiModelProperty(value = "����ʱ��")
-    @TableField("createTime")
-    private Date createTime;
+    /**
+     * ����ʱ��
+     */
+    private Date createtime;
 
-    @ApiModelProperty(value = "ɾ����� 0.δɾ�� 1.��ɾ��")
-    @TableField("isDeleted")
-    private Integer isDeleted;
+    /**
+     * ɾ����� 0.δɾ�� 1.��ɾ��
+     */
+    private Integer isdeleted;
 
+    private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;
@@ -76,12 +80,12 @@ public class SysEmployee implements Serializable {
         this.id = id;
     }
 
-    public String getEmployeeCode() {
-        return employeeCode;
+    public String getEmployeecode() {
+        return employeecode;
     }
 
-    public void setEmployeeCode(String employeeCode) {
-        this.employeeCode = employeeCode;
+    public void setEmployeecode(String employeecode) {
+        this.employeecode = employeecode;
     }
 
     public String getEname() {
@@ -92,12 +96,12 @@ public class SysEmployee implements Serializable {
         this.ename = ename;
     }
 
-    public String getWarehouseCode() {
-        return warehouseCode;
+    public String getWarehousecode() {
+        return warehousecode;
     }
 
-    public void setWarehouseCode(String warehouseCode) {
-        this.warehouseCode = warehouseCode;
+    public void setWarehousecode(String warehousecode) {
+        this.warehousecode = warehousecode;
     }
 
     public String getTel() {
@@ -140,54 +144,106 @@ public class SysEmployee implements Serializable {
         this.token = token;
     }
 
-    public String getPositionId() {
-        return positionId;
+    public String getPositionid() {
+        return positionid;
     }
 
-    public void setPositionId(String positionId) {
-        this.positionId = positionId;
+    public void setPositionid(String positionid) {
+        this.positionid = positionid;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getImageurl() {
+        return imageurl;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setImageurl(String imageurl) {
+        this.imageurl = imageurl;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public Date getCreatetime() {
+        return createtime;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
     }
 
-    public Integer getIsDeleted() {
-        return isDeleted;
+    public Integer getIsdeleted() {
+        return isdeleted;
     }
 
-    public void setIsDeleted(Integer isDeleted) {
-        this.isDeleted = isDeleted;
+    public void setIsdeleted(Integer isdeleted) {
+        this.isdeleted = isdeleted;
+    }
+
+    @Override
+    public boolean equals(Object that) {
+        if (this == that) {
+            return true;
+        }
+        if (that == null) {
+            return false;
+        }
+        if (getClass() != that.getClass()) {
+            return false;
+        }
+        SysEmployee other = (SysEmployee) that;
+        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
+            && (this.getEmployeecode() == null ? other.getEmployeecode() == null : this.getEmployeecode().equals(other.getEmployeecode()))
+            && (this.getEname() == null ? other.getEname() == null : this.getEname().equals(other.getEname()))
+            && (this.getWarehousecode() == null ? other.getWarehousecode() == null : this.getWarehousecode().equals(other.getWarehousecode()))
+            && (this.getTel() == null ? other.getTel() == null : this.getTel().equals(other.getTel()))
+            && (this.getSex() == null ? other.getSex() == null : this.getSex().equals(other.getSex()))
+            && (this.getBirthday() == null ? other.getBirthday() == null : this.getBirthday().equals(other.getBirthday()))
+            && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
+            && (this.getToken() == null ? other.getToken() == null : this.getToken().equals(other.getToken()))
+            && (this.getPositionid() == null ? other.getPositionid() == null : this.getPositionid().equals(other.getPositionid()))
+            && (this.getImageurl() == null ? other.getImageurl() == null : this.getImageurl().equals(other.getImageurl()))
+            && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
+            && (this.getIsdeleted() == null ? other.getIsdeleted() == null : this.getIsdeleted().equals(other.getIsdeleted()));
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+        result = prime * result + ((getEmployeecode() == null) ? 0 : getEmployeecode().hashCode());
+        result = prime * result + ((getEname() == null) ? 0 : getEname().hashCode());
+        result = prime * result + ((getWarehousecode() == null) ? 0 : getWarehousecode().hashCode());
+        result = prime * result + ((getTel() == null) ? 0 : getTel().hashCode());
+        result = prime * result + ((getSex() == null) ? 0 : getSex().hashCode());
+        result = prime * result + ((getBirthday() == null) ? 0 : getBirthday().hashCode());
+        result = prime * result + ((getPassword() == null) ? 0 : getPassword().hashCode());
+        result = prime * result + ((getToken() == null) ? 0 : getToken().hashCode());
+        result = prime * result + ((getPositionid() == null) ? 0 : getPositionid().hashCode());
+        result = prime * result + ((getImageurl() == null) ? 0 : getImageurl().hashCode());
+        result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
+        result = prime * result + ((getIsdeleted() == null) ? 0 : getIsdeleted().hashCode());
+        return result;
     }
 
     @Override
     public String toString() {
-        return "SysEmployee{" +
-        "id=" + id +
-        ", employeeCode=" + employeeCode +
-        ", ename=" + ename +
-        ", warehouseCode=" + warehouseCode +
-        ", tel=" + tel +
-        ", sex=" + sex +
-        ", birthday=" + birthday +
-        ", password=" + password +
-        ", token=" + token +
-        ", positionId=" + positionId +
-        ", imageUrl=" + imageUrl +
-        ", createTime=" + createTime +
-        ", isDeleted=" + isDeleted +
-        "}";
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", id=").append(id);
+        sb.append(", employeecode=").append(employeecode);
+        sb.append(", ename=").append(ename);
+        sb.append(", warehousecode=").append(warehousecode);
+        sb.append(", tel=").append(tel);
+        sb.append(", sex=").append(sex);
+        sb.append(", birthday=").append(birthday);
+        sb.append(", password=").append(password);
+        sb.append(", token=").append(token);
+        sb.append(", positionid=").append(positionid);
+        sb.append(", imageurl=").append(imageurl);
+        sb.append(", createtime=").append(createtime);
+        sb.append(", isdeleted=").append(isdeleted);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
+        sb.append("]");
+        return sb.toString();
     }
 }

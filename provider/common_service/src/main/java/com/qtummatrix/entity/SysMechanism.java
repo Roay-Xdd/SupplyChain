@@ -1,65 +1,63 @@
 package com.qtummatrix.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import java.util.Date;
-import com.baomidou.mybatisplus.annotation.Version;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Date;
 
 /**
- * <p>
- * 
- * </p>
- *
- * @author ${author}
- * @since 2020-07-06
+ * sys_mechanism
+ * @author 
  */
-@ApiModel(value="SysMechanism对象", description="")
 public class SysMechanism implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    @ApiModelProperty(value = "�������")
-    @TableField("mechanismCode")
-    private String mechanismCode;
+    /**
+     * �������
+     */
+    private String mechanismcode;
 
-    @ApiModelProperty(value = "��������")
-    @TableField("mechanismName")
-    private String mechanismName;
+    /**
+     * ��������
+     */
+    private String mechanismname;
 
-    @ApiModelProperty(value = "����id")
-    @TableField("levelId")
-    private Integer levelId;
+    /**
+     * ����id
+     */
+    private Integer levelid;
 
-    @ApiModelProperty(value = "������������")
+    /**
+     * ������������
+     */
     private String addvcd;
 
-    @ApiModelProperty(value = "��½����")
+    /**
+     * ��½����
+     */
     private String password;
 
-    @ApiModelProperty(value = "������ϵ�绰")
+    /**
+     * ������ϵ�绰
+     */
     private String tel;
 
-    @ApiModelProperty(value = "�ϼ�����id")
-    @TableField("parentId")
-    private Integer parentId;
+    /**
+     * �ϼ�����id
+     */
+    private Integer parentid;
 
-    @ApiModelProperty(value = "����ʱ��")
-    @TableField("createTime")
-    private Date createTime;
+    /**
+     * ����ʱ��
+     */
+    private Date createtime;
 
-    @ApiModelProperty(value = "ɾ����� 0.δɾ�� 1.��ɾ��")
-    @TableField("isDeleted")
-    private Integer isDeleted;
+    /**
+     * ɾ����� 0.δɾ�� 1.��ɾ��
+     */
+    private Integer isdeleted;
 
     private String city;
 
+    private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;
@@ -69,28 +67,28 @@ public class SysMechanism implements Serializable {
         this.id = id;
     }
 
-    public String getMechanismCode() {
-        return mechanismCode;
+    public String getMechanismcode() {
+        return mechanismcode;
     }
 
-    public void setMechanismCode(String mechanismCode) {
-        this.mechanismCode = mechanismCode;
+    public void setMechanismcode(String mechanismcode) {
+        this.mechanismcode = mechanismcode;
     }
 
-    public String getMechanismName() {
-        return mechanismName;
+    public String getMechanismname() {
+        return mechanismname;
     }
 
-    public void setMechanismName(String mechanismName) {
-        this.mechanismName = mechanismName;
+    public void setMechanismname(String mechanismname) {
+        this.mechanismname = mechanismname;
     }
 
-    public Integer getLevelId() {
-        return levelId;
+    public Integer getLevelid() {
+        return levelid;
     }
 
-    public void setLevelId(Integer levelId) {
-        this.levelId = levelId;
+    public void setLevelid(Integer levelid) {
+        this.levelid = levelid;
     }
 
     public String getAddvcd() {
@@ -117,28 +115,28 @@ public class SysMechanism implements Serializable {
         this.tel = tel;
     }
 
-    public Integer getParentId() {
-        return parentId;
+    public Integer getParentid() {
+        return parentid;
     }
 
-    public void setParentId(Integer parentId) {
-        this.parentId = parentId;
+    public void setParentid(Integer parentid) {
+        this.parentid = parentid;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public Date getCreatetime() {
+        return createtime;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
     }
 
-    public Integer getIsDeleted() {
-        return isDeleted;
+    public Integer getIsdeleted() {
+        return isdeleted;
     }
 
-    public void setIsDeleted(Integer isDeleted) {
-        this.isDeleted = isDeleted;
+    public void setIsdeleted(Integer isdeleted) {
+        this.isdeleted = isdeleted;
     }
 
     public String getCity() {
@@ -150,19 +148,67 @@ public class SysMechanism implements Serializable {
     }
 
     @Override
+    public boolean equals(Object that) {
+        if (this == that) {
+            return true;
+        }
+        if (that == null) {
+            return false;
+        }
+        if (getClass() != that.getClass()) {
+            return false;
+        }
+        SysMechanism other = (SysMechanism) that;
+        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
+            && (this.getMechanismcode() == null ? other.getMechanismcode() == null : this.getMechanismcode().equals(other.getMechanismcode()))
+            && (this.getMechanismname() == null ? other.getMechanismname() == null : this.getMechanismname().equals(other.getMechanismname()))
+            && (this.getLevelid() == null ? other.getLevelid() == null : this.getLevelid().equals(other.getLevelid()))
+            && (this.getAddvcd() == null ? other.getAddvcd() == null : this.getAddvcd().equals(other.getAddvcd()))
+            && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
+            && (this.getTel() == null ? other.getTel() == null : this.getTel().equals(other.getTel()))
+            && (this.getParentid() == null ? other.getParentid() == null : this.getParentid().equals(other.getParentid()))
+            && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
+            && (this.getIsdeleted() == null ? other.getIsdeleted() == null : this.getIsdeleted().equals(other.getIsdeleted()))
+            && (this.getCity() == null ? other.getCity() == null : this.getCity().equals(other.getCity()));
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+        result = prime * result + ((getMechanismcode() == null) ? 0 : getMechanismcode().hashCode());
+        result = prime * result + ((getMechanismname() == null) ? 0 : getMechanismname().hashCode());
+        result = prime * result + ((getLevelid() == null) ? 0 : getLevelid().hashCode());
+        result = prime * result + ((getAddvcd() == null) ? 0 : getAddvcd().hashCode());
+        result = prime * result + ((getPassword() == null) ? 0 : getPassword().hashCode());
+        result = prime * result + ((getTel() == null) ? 0 : getTel().hashCode());
+        result = prime * result + ((getParentid() == null) ? 0 : getParentid().hashCode());
+        result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
+        result = prime * result + ((getIsdeleted() == null) ? 0 : getIsdeleted().hashCode());
+        result = prime * result + ((getCity() == null) ? 0 : getCity().hashCode());
+        return result;
+    }
+
+    @Override
     public String toString() {
-        return "SysMechanism{" +
-        "id=" + id +
-        ", mechanismCode=" + mechanismCode +
-        ", mechanismName=" + mechanismName +
-        ", levelId=" + levelId +
-        ", addvcd=" + addvcd +
-        ", password=" + password +
-        ", tel=" + tel +
-        ", parentId=" + parentId +
-        ", createTime=" + createTime +
-        ", isDeleted=" + isDeleted +
-        ", city=" + city +
-        "}";
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", id=").append(id);
+        sb.append(", mechanismcode=").append(mechanismcode);
+        sb.append(", mechanismname=").append(mechanismname);
+        sb.append(", levelid=").append(levelid);
+        sb.append(", addvcd=").append(addvcd);
+        sb.append(", password=").append(password);
+        sb.append(", tel=").append(tel);
+        sb.append(", parentid=").append(parentid);
+        sb.append(", createtime=").append(createtime);
+        sb.append(", isdeleted=").append(isdeleted);
+        sb.append(", city=").append(city);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
+        sb.append("]");
+        return sb.toString();
     }
 }

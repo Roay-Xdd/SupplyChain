@@ -1,33 +1,20 @@
 package com.qtummatrix.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.Version;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * <p>
- * 
- * </p>
- *
- * @author ${author}
- * @since 2020-07-06
+ * sys_position
+ * @author 
  */
-@ApiModel(value="SysPosition对象", description="")
 public class SysPosition implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    @ApiModelProperty(value = "��λ���� 1.ִ�о��� 2.���۴��� 3.�ֿ������Ա 4.����������Ա ")
-    @TableField("positionName")
-    private String positionName;
+    /**
+     * ��λ���� 1.ִ�о��� 2.���۴��� 3.�ֿ������Ա 4.����������Ա 
+     */
+    private String positionname;
 
+    private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;
@@ -37,19 +24,49 @@ public class SysPosition implements Serializable {
         this.id = id;
     }
 
-    public String getPositionName() {
-        return positionName;
+    public String getPositionname() {
+        return positionname;
     }
 
-    public void setPositionName(String positionName) {
-        this.positionName = positionName;
+    public void setPositionname(String positionname) {
+        this.positionname = positionname;
+    }
+
+    @Override
+    public boolean equals(Object that) {
+        if (this == that) {
+            return true;
+        }
+        if (that == null) {
+            return false;
+        }
+        if (getClass() != that.getClass()) {
+            return false;
+        }
+        SysPosition other = (SysPosition) that;
+        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
+            && (this.getPositionname() == null ? other.getPositionname() == null : this.getPositionname().equals(other.getPositionname()));
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+        result = prime * result + ((getPositionname() == null) ? 0 : getPositionname().hashCode());
+        return result;
     }
 
     @Override
     public String toString() {
-        return "SysPosition{" +
-        "id=" + id +
-        ", positionName=" + positionName +
-        "}";
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", id=").append(id);
+        sb.append(", positionname=").append(positionname);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
+        sb.append("]");
+        return sb.toString();
     }
 }

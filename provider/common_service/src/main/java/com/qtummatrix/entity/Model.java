@@ -1,38 +1,33 @@
 package com.qtummatrix.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.Version;
-import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * <p>
- * 
- * </p>
- *
- * @author ${author}
- * @since 2020-07-06
+ * model
+ * @author 
  */
-@ApiModel(value="Model对象", description="")
 public class Model implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    @ApiModelProperty(value = "ģ��ID")
-    @TableId(value = "id", type = IdType.AUTO)
+    /**
+     * ģ��ID
+     */
     private Integer id;
 
-    @ApiModelProperty(value = "��ģ��id")
+    /**
+     * ��ģ��id
+     */
     private Integer parentid;
 
-    @ApiModelProperty(value = "ģ������")
+    /**
+     * ģ������
+     */
     private String modelname;
 
-    @ApiModelProperty(value = "��תҳ��·��")
+    /**
+     * ��תҳ��·��
+     */
     private String modelurl;
 
+    private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;
@@ -67,12 +62,46 @@ public class Model implements Serializable {
     }
 
     @Override
+    public boolean equals(Object that) {
+        if (this == that) {
+            return true;
+        }
+        if (that == null) {
+            return false;
+        }
+        if (getClass() != that.getClass()) {
+            return false;
+        }
+        Model other = (Model) that;
+        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
+            && (this.getParentid() == null ? other.getParentid() == null : this.getParentid().equals(other.getParentid()))
+            && (this.getModelname() == null ? other.getModelname() == null : this.getModelname().equals(other.getModelname()))
+            && (this.getModelurl() == null ? other.getModelurl() == null : this.getModelurl().equals(other.getModelurl()));
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+        result = prime * result + ((getParentid() == null) ? 0 : getParentid().hashCode());
+        result = prime * result + ((getModelname() == null) ? 0 : getModelname().hashCode());
+        result = prime * result + ((getModelurl() == null) ? 0 : getModelurl().hashCode());
+        return result;
+    }
+
+    @Override
     public String toString() {
-        return "Model{" +
-        "id=" + id +
-        ", parentid=" + parentid +
-        ", modelname=" + modelname +
-        ", modelurl=" + modelurl +
-        "}";
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", id=").append(id);
+        sb.append(", parentid=").append(parentid);
+        sb.append(", modelname=").append(modelname);
+        sb.append(", modelurl=").append(modelurl);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
+        sb.append("]");
+        return sb.toString();
     }
 }

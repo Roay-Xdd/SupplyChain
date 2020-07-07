@@ -1,47 +1,40 @@
 package com.qtummatrix.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.Version;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * <p>
- * 
- * </p>
- *
- * @author ${author}
- * @since 2020-07-06
+ * sys_mechanismlevel
+ * @author 
  */
-@ApiModel(value="SysMechanismlevel对象", description="")
 public class SysMechanismlevel implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    @ApiModelProperty(value = "��������")
-    @TableField("levelName")
-    private String levelName;
+    /**
+     * ��������
+     */
+    private String levelname;
 
-    @ApiModelProperty(value = "����ȼ� 1.�ܲ�Ӫ������ 2.ʡ�������� 3.�м������� 4.����������")
+    /**
+     * ����ȼ� 1.�ܲ�Ӫ������ 2.ʡ�������� 3.�м������� 4.����������
+     */
     private Integer grade;
 
-    @ApiModelProperty(value = "�ϼ�id")
-    @TableField("parentId")
-    private Integer parentId;
+    /**
+     * �ϼ�id
+     */
+    private Integer parentid;
 
-    @ApiModelProperty(value = "��ע")
+    /**
+     * ��ע
+     */
     private String mark;
 
-    @ApiModelProperty(value = "ɾ����� 0.δɾ�� 1.��ɾ��")
-    @TableField("isDeleted")
-    private Integer isDeleted;
+    /**
+     * ɾ����� 0.δɾ�� 1.��ɾ��
+     */
+    private Integer isdeleted;
 
+    private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;
@@ -51,12 +44,12 @@ public class SysMechanismlevel implements Serializable {
         this.id = id;
     }
 
-    public String getLevelName() {
-        return levelName;
+    public String getLevelname() {
+        return levelname;
     }
 
-    public void setLevelName(String levelName) {
-        this.levelName = levelName;
+    public void setLevelname(String levelname) {
+        this.levelname = levelname;
     }
 
     public Integer getGrade() {
@@ -67,12 +60,12 @@ public class SysMechanismlevel implements Serializable {
         this.grade = grade;
     }
 
-    public Integer getParentId() {
-        return parentId;
+    public Integer getParentid() {
+        return parentid;
     }
 
-    public void setParentId(Integer parentId) {
-        this.parentId = parentId;
+    public void setParentid(Integer parentid) {
+        this.parentid = parentid;
     }
 
     public String getMark() {
@@ -83,23 +76,61 @@ public class SysMechanismlevel implements Serializable {
         this.mark = mark;
     }
 
-    public Integer getIsDeleted() {
-        return isDeleted;
+    public Integer getIsdeleted() {
+        return isdeleted;
     }
 
-    public void setIsDeleted(Integer isDeleted) {
-        this.isDeleted = isDeleted;
+    public void setIsdeleted(Integer isdeleted) {
+        this.isdeleted = isdeleted;
+    }
+
+    @Override
+    public boolean equals(Object that) {
+        if (this == that) {
+            return true;
+        }
+        if (that == null) {
+            return false;
+        }
+        if (getClass() != that.getClass()) {
+            return false;
+        }
+        SysMechanismlevel other = (SysMechanismlevel) that;
+        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
+            && (this.getLevelname() == null ? other.getLevelname() == null : this.getLevelname().equals(other.getLevelname()))
+            && (this.getGrade() == null ? other.getGrade() == null : this.getGrade().equals(other.getGrade()))
+            && (this.getParentid() == null ? other.getParentid() == null : this.getParentid().equals(other.getParentid()))
+            && (this.getMark() == null ? other.getMark() == null : this.getMark().equals(other.getMark()))
+            && (this.getIsdeleted() == null ? other.getIsdeleted() == null : this.getIsdeleted().equals(other.getIsdeleted()));
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+        result = prime * result + ((getLevelname() == null) ? 0 : getLevelname().hashCode());
+        result = prime * result + ((getGrade() == null) ? 0 : getGrade().hashCode());
+        result = prime * result + ((getParentid() == null) ? 0 : getParentid().hashCode());
+        result = prime * result + ((getMark() == null) ? 0 : getMark().hashCode());
+        result = prime * result + ((getIsdeleted() == null) ? 0 : getIsdeleted().hashCode());
+        return result;
     }
 
     @Override
     public String toString() {
-        return "SysMechanismlevel{" +
-        "id=" + id +
-        ", levelName=" + levelName +
-        ", grade=" + grade +
-        ", parentId=" + parentId +
-        ", mark=" + mark +
-        ", isDeleted=" + isDeleted +
-        "}";
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", id=").append(id);
+        sb.append(", levelname=").append(levelname);
+        sb.append(", grade=").append(grade);
+        sb.append(", parentid=").append(parentid);
+        sb.append(", mark=").append(mark);
+        sb.append(", isdeleted=").append(isdeleted);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
+        sb.append("]");
+        return sb.toString();
     }
 }

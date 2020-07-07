@@ -1,40 +1,30 @@
 package com.qtummatrix.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.Version;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * <p>
- * 
- * </p>
- *
- * @author ${author}
- * @since 2020-07-06
+ * sys_shoptype
+ * @author 
  */
-@ApiModel(value="SysShoptype对象", description="")
 public class SysShoptype implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    @ApiModelProperty(value = "�������� һ�������磺1.��λ�� 2.����Ʒ 3.����ͨ 4.����ҵ ���������磺�����������ꡢ�������������")
-    @TableField("typeName")
-    private String typeName;
+    /**
+     * �������� һ�������磺1.��λ�� 2.����Ʒ 3.����ͨ 4.����ҵ ���������磺�����������ꡢ�������������
+     */
+    private String typename;
 
-    @ApiModelProperty(value = "������id")
-    @TableField("parentId")
-    private Integer parentId;
+    /**
+     * ������id
+     */
+    private Integer parentid;
 
-    @ApiModelProperty(value = "�����ֶ�")
+    /**
+     * �����ֶ�
+     */
     private Integer sort;
 
+    private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;
@@ -44,20 +34,20 @@ public class SysShoptype implements Serializable {
         this.id = id;
     }
 
-    public String getTypeName() {
-        return typeName;
+    public String getTypename() {
+        return typename;
     }
 
-    public void setTypeName(String typeName) {
-        this.typeName = typeName;
+    public void setTypename(String typename) {
+        this.typename = typename;
     }
 
-    public Integer getParentId() {
-        return parentId;
+    public Integer getParentid() {
+        return parentid;
     }
 
-    public void setParentId(Integer parentId) {
-        this.parentId = parentId;
+    public void setParentid(Integer parentid) {
+        this.parentid = parentid;
     }
 
     public Integer getSort() {
@@ -69,12 +59,46 @@ public class SysShoptype implements Serializable {
     }
 
     @Override
+    public boolean equals(Object that) {
+        if (this == that) {
+            return true;
+        }
+        if (that == null) {
+            return false;
+        }
+        if (getClass() != that.getClass()) {
+            return false;
+        }
+        SysShoptype other = (SysShoptype) that;
+        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
+            && (this.getTypename() == null ? other.getTypename() == null : this.getTypename().equals(other.getTypename()))
+            && (this.getParentid() == null ? other.getParentid() == null : this.getParentid().equals(other.getParentid()))
+            && (this.getSort() == null ? other.getSort() == null : this.getSort().equals(other.getSort()));
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+        result = prime * result + ((getTypename() == null) ? 0 : getTypename().hashCode());
+        result = prime * result + ((getParentid() == null) ? 0 : getParentid().hashCode());
+        result = prime * result + ((getSort() == null) ? 0 : getSort().hashCode());
+        return result;
+    }
+
+    @Override
     public String toString() {
-        return "SysShoptype{" +
-        "id=" + id +
-        ", typeName=" + typeName +
-        ", parentId=" + parentId +
-        ", sort=" + sort +
-        "}";
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", id=").append(id);
+        sb.append(", typename=").append(typename);
+        sb.append(", parentid=").append(parentid);
+        sb.append(", sort=").append(sort);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
+        sb.append("]");
+        return sb.toString();
     }
 }

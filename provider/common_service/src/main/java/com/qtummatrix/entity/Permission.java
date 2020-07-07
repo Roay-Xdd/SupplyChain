@@ -1,37 +1,28 @@
 package com.qtummatrix.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.Version;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * <p>
- * 
- * </p>
- *
- * @author ${author}
- * @since 2020-07-06
+ * permission
+ * @author 
  */
-@ApiModel(value="Permission对象", description="")
 public class Permission implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    @ApiModelProperty(value = "Ȩ��ID")
-    @TableId(value = "id", type = IdType.AUTO)
+    /**
+     * Ȩ��ID
+     */
     private Integer id;
 
-    @ApiModelProperty(value = "Ȩ������")
+    /**
+     * Ȩ������
+     */
     private Integer permissionname;
 
-    @ApiModelProperty(value = "ģ��ID")
-    @TableField("modelId")
-    private Integer modelId;
+    /**
+     * ģ��ID
+     */
+    private Integer modelid;
 
+    private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;
@@ -49,20 +40,52 @@ public class Permission implements Serializable {
         this.permissionname = permissionname;
     }
 
-    public Integer getModelId() {
-        return modelId;
+    public Integer getModelid() {
+        return modelid;
     }
 
-    public void setModelId(Integer modelId) {
-        this.modelId = modelId;
+    public void setModelid(Integer modelid) {
+        this.modelid = modelid;
+    }
+
+    @Override
+    public boolean equals(Object that) {
+        if (this == that) {
+            return true;
+        }
+        if (that == null) {
+            return false;
+        }
+        if (getClass() != that.getClass()) {
+            return false;
+        }
+        Permission other = (Permission) that;
+        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
+            && (this.getPermissionname() == null ? other.getPermissionname() == null : this.getPermissionname().equals(other.getPermissionname()))
+            && (this.getModelid() == null ? other.getModelid() == null : this.getModelid().equals(other.getModelid()));
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+        result = prime * result + ((getPermissionname() == null) ? 0 : getPermissionname().hashCode());
+        result = prime * result + ((getModelid() == null) ? 0 : getModelid().hashCode());
+        return result;
     }
 
     @Override
     public String toString() {
-        return "Permission{" +
-        "id=" + id +
-        ", permissionname=" + permissionname +
-        ", modelId=" + modelId +
-        "}";
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", id=").append(id);
+        sb.append(", permissionname=").append(permissionname);
+        sb.append(", modelid=").append(modelid);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
+        sb.append("]");
+        return sb.toString();
     }
 }

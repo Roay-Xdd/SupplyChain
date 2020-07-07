@@ -22,17 +22,19 @@ public class CodeUtil {
 // 1、全局配置
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
-        gc.setOutputDir(projectPath + "/common/src/main/java");
+        gc.setOutputDir(projectPath + "/provider/common_service/src/main/java");
+
+//        System.out.println("ssssss"+gc.getOutputDir());
         gc.setOpen(false);
         gc.setFileOverride(false); // 是否覆盖
         gc.setServiceName("%sService"); // 去Service的I前缀
         gc.setIdType(IdType.ID_WORKER);
         gc.setDateType(DateType.ONLY_DATE);
-        gc.setSwagger2(true);
+        gc.setSwagger2(false);
         mpg.setGlobalConfig(gc);
 //2、设置数据源
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://192.168.1.79:3306/supplier? useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8");
+        dsc.setUrl("jdbc:mysql://192.168.1.52:3306/supplier? useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("root");
@@ -50,7 +52,7 @@ public class CodeUtil {
         StrategyConfig strategy = new StrategyConfig();
         strategy.setInclude(
                 "bm_address",
-                "bm_address",
+                "bm_brand",
                 "bm_category",
                 "bm_goods",
                 "bm_inordergoodslist",
