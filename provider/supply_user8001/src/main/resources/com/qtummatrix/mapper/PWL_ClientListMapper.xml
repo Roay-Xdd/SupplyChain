@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qtummatrix.mapper.PWL_ClientListMapper">
+
+    <!--  根据员工手机号获取仓库编号再获取所有与之建立合作的店铺信息  -->
+    <select id="getClientListByTel" resultType="com.qtummatrix.bean.PWL_ClientList">
+        select b.warehouseCode warehouseCode,a.id id,businessName,backImg,a.mapCode storeMapCode,
+        b.mapCode  warehouseMapCode from bm_sellermechanism c left join bm_member a on a.id = sellerId
+        left join  bm_warehouse b on b.id = c.mechanismId left join sys_employee d on d.warehouseCode =
+        b.warehouseCode where d.tel = #{tel}
+    </select>
+
+    <!--  根据仓库编号和店铺名称查询（模糊查询）  -->
+    <select id="getClientList" resultType="com.qtummatrix.bean.PWL_ClientList">
+        select b.warehouseCode warehouseCode,a.id id,businessName,backImg,a.mapCode warehouseMapCode,
+        b.mapCode storeMapCode from bm_sellermechanism c left join bm_member a on a.id = sellerId
+        left join bm_warehouse b on b.id = c.mechanismId
+        <where>
+            warehouseCode = #{warehouseCode}
+            <if test="businessName!=null and businessName!=''">
+                and businessName like '%' #{businessName} '%'
+            </if>
+        </where>
+    </select>
+
+</mapper>
