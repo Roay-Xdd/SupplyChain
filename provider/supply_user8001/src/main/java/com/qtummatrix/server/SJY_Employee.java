@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
  * @Author: Shi JiuYue
  * @Date: 2020/7/7 15:09
  */
-public interface SJYEmployee {
+public interface SJY_Employee {
 
     /**
      * 方法描述: 员工根据手机号和密码登陆
