@@ -2,6 +2,7 @@ package com.qtummatrix.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.qtummatrix.entity.SysEmployee;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
@@ -12,7 +13,8 @@ import org.springframework.stereotype.Component;
  * @Date 14:47 2020/7/7
  **/
 
-@Component
+
+@Mapper
 public interface SJYSysEmployeeMapper extends BaseMapper<SysEmployee> {
 
     int deleteByPrimaryKey(Integer id);

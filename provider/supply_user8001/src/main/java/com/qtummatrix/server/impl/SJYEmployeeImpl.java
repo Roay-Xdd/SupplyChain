@@ -5,6 +5,7 @@ import com.qtummatrix.entity.SysEmployee;
 import com.qtummatrix.mapper.SJYSysEmployeeMapper;
 import com.qtummatrix.server.SJYEmployee;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 public class SJYEmployeeImpl implements SJYEmployee {
 
 
-    @Autowired
+    @Autowired(required = false)
     private SJYSysEmployeeMapper sjySysEmployeeMapper;
 
 
