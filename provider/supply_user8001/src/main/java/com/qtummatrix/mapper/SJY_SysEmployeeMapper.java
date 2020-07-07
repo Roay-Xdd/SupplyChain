@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 
 
 @Mapper
-public interface SJYSysEmployeeMapper extends BaseMapper<SysEmployee> {
+public interface SJY_SysEmployeeMapper extends BaseMapper<SysEmployee> {
 
     int deleteByPrimaryKey(Integer id);
 
