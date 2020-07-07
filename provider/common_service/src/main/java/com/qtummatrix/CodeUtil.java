@@ -14,6 +14,7 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 
 import java.util.ArrayList;
 
+
 public class CodeUtil {
     public static void main(String[] args) {
 // 需要构建一个 代码自动生成器 对象
