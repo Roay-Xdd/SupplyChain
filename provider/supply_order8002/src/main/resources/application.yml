@@ -36,5 +36,3 @@ eureka:
 mybatis:
   mapperLocations: classpath:mapper/*.xml
   type-aliases-package: com.qtummatrix.entity   # 所有Entity别名类所在包
-
-

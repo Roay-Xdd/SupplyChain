@@ -1,4 +1,4 @@
-package com.qtummtrix;
+package com.qtummatrix;
 
 
 import org.springframework.boot.SpringApplication;
