@@ -9,10 +9,10 @@ import java.net.URLEncoder;
 
 
 /**
- * 
- * Cookie 工具类
- *
- */
+ * 方法描述: Cookie工具类
+ * @Author: Shi JiuYue
+ * @Date 17:23 2020/7/7
+ **/
 public final class CookieUtils {
 
     /**
@@ -33,6 +33,7 @@ public final class CookieUtils {
      * @param cookieName
      * @return
      */
+    // isDecoder : 解码器
     public static String getCookieValue(HttpServletRequest request, String cookieName, boolean isDecoder) {
         Cookie[] cookieList = request.getCookies();
         if (cookieList == null || cookieName == null) {
@@ -63,6 +64,7 @@ public final class CookieUtils {
      * @param cookieName
      * @return
      */
+    //encode   编码
     public static String getCookieValue(HttpServletRequest request, String cookieName, String encodeString) {
         Cookie[] cookieList = request.getCookies();
         if (cookieList == null || cookieName == null) {
@@ -85,40 +87,42 @@ public final class CookieUtils {
     /**
      * 设置Cookie的值 不设置生效时间默认浏览器关闭即失效,也不编码
      */
-    public static void setCookie(HttpServletRequest request, HttpServletResponse response, String cookieName,
-            String cookieValue) {
+    public static void setCookie(HttpServletRequest request, HttpServletResponse response,
+                                 String cookieName,String cookieValue) {
+        System.out.println("输出一下存到cookie的cookie值："+cookieValue);
         setCookie(request, response, cookieName, cookieValue, -1);
     }
 
     /**
      * 设置Cookie的值 在指定时间内生效,但不编码
+     * cookieMaxage: cookie最大时间期限
      */
-    public static void setCookie(HttpServletRequest request, HttpServletResponse response, String cookieName,
-            String cookieValue, int cookieMaxage) {
+    public static void setCookie(HttpServletRequest request, HttpServletResponse response,
+                                 String cookieName,String cookieValue, int cookieMaxage) {
         setCookie(request, response, cookieName, cookieValue, cookieMaxage, false);
     }
 
     /**
      * 设置Cookie的值 不设置生效时间,但编码
      */
-    public static void setCookie(HttpServletRequest request, HttpServletResponse response, String cookieName,
-            String cookieValue, boolean isEncode) {
+    public static void setCookie(HttpServletRequest request, HttpServletResponse response,
+    String cookieName,String cookieValue, boolean isEncode) {
         setCookie(request, response, cookieName, cookieValue, -1, isEncode);
     }
 
     /**
      * 设置Cookie的值 在指定时间内生效, 编码参数
      */
-    public static void setCookie(HttpServletRequest request, HttpServletResponse response, String cookieName,
-            String cookieValue, int cookieMaxage, boolean isEncode) {
+    public static void setCookie(HttpServletRequest request, HttpServletResponse response,
+    String cookieName,String cookieValue, int cookieMaxage, boolean isEncode) {
         doSetCookie(request, response, cookieName, cookieValue, cookieMaxage, isEncode);
     }
 
     /**
      * 设置Cookie的值 在指定时间内生效, 编码参数(指定编码)
      */
-    public static void setCookie(HttpServletRequest request, HttpServletResponse response, String cookieName,
-            String cookieValue, int cookieMaxage, String encodeString) {
+    public static void setCookie(HttpServletRequest request, HttpServletResponse response,
+     String cookieName,String cookieValue, int cookieMaxage, String encodeString) {
         doSetCookie(request, response, cookieName, cookieValue, cookieMaxage, encodeString);
     }
 
@@ -200,11 +204,11 @@ public final class CookieUtils {
         if (serverName == null || serverName.equals("")) {
             domainName = "";
         } else {
-            serverName = serverName.toLowerCase();
-            serverName = serverName.substring(7);
-            final int end = serverName.indexOf("/");
-            serverName = serverName.substring(0, end);
-            final String[] domains = serverName.split("\\.");
+            serverName = serverName.toLowerCase();  //转换为小写
+            serverName = serverName.substring(7);   //截取字符串
+            final int end = serverName.indexOf("/");  //得到指定所有的位置
+            serverName = serverName.substring(0, end);  //截取
+            final String[] domains = serverName.split("\\."); //分离
             int len = domains.length;
             if (len > 3) {
                 // www.xxx.com.cn

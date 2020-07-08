@@ -1,11 +1,11 @@
 package com.qtummatrix.server.impl;
 
-import com.qtummatrix.SjyBean.RedisFeignClient;
 import com.qtummatrix.SjyBean.SupplyResult;
 import com.qtummatrix.entity.SysEmployee;
 import com.qtummatrix.mapper.SJY_SysEmployeeMapper;
 import com.qtummatrix.server.SJY_Employee;
 import com.qtummatrix.util.CookieUtils;
+import com.qtummatrix.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,7 +28,7 @@ public class SJY_EmployeeImpl implements SJY_Employee {
     private SJY_SysEmployeeMapper sjySysEmployeeMapper;
 
     @Autowired
-    private RedisFeignClient redisFeignClient;
+    private RedisUtil redisUtil;
 
 
     /**
@@ -54,7 +54,7 @@ public class SJY_EmployeeImpl implements SJY_Employee {
 
 
         //将用户存入到redis中,并且设置过期时间为一天
-        redisFeignClient.setToRedis(token,sysEmployee,new Long(60*60*24));
+        redisUtil.set(token,sysEmployee,new Long(60*60*24));
 
         //添加cookie，cookie的有效期是关闭浏览器失效
         CookieUtils.setCookie(request,reponse,"Supply_TOKEN",token);
