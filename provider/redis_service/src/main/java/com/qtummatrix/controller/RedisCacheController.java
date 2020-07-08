@@ -15,6 +15,7 @@ import java.util.List;
  * @Date 15:53 2020/7/7
  **/
 @RestController
+
 public class RedisCacheController {
     @Autowired
     private RedisCacheService redisCacheService;
