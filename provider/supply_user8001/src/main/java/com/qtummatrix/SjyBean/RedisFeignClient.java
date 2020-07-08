@@ -1,6 +1,9 @@
 package com.qtummatrix.SjyBean;
 
 
+import com.baomidou.mybatisplus.extension.api.R;
+import com.qtummatrix.util.RedisUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,12 +17,16 @@ import org.springframework.stereotype.Component;
 public class RedisFeignClient {
 
 
+
     /**
      * 方法描述: 获取token
      * @Author: Shi JiuYue
      * @Date 17:07 2020/7/7
      **/
     public SupplyResult getFromRedis(String token){
+
+        RedisUtil redisUtil = new RedisUtil();
+
 
         return SupplyResult.build(400,"getFromRedis请求熔断了……");
     }
@@ -32,7 +39,13 @@ public class RedisFeignClient {
      **/
     public SupplyResult setToRedis(String token,Object value ,Long time){
 
-        return SupplyResult.build(400,"getFromRedis请求熔断了……");
+        RedisUtil redisUtil = new RedisUtil();
+        System.out.println("进入redis的setToRedis方法");
+        System.out.println("token:"+token);
+
+        redisUtil.set(token,value,time);
+
+        return SupplyResult.build(200,"存入redis成功");
     }
 
 }

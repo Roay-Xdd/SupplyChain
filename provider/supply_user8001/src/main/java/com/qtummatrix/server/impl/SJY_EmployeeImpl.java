@@ -27,6 +27,7 @@ public class SJY_EmployeeImpl implements SJY_Employee {
     @Autowired(required = false)
     private SJY_SysEmployeeMapper sjySysEmployeeMapper;
 
+    @Autowired
     private RedisFeignClient redisFeignClient;
 
 
