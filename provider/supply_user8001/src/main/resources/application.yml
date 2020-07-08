@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: supply_user
+    name: supply-user
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
     driver-class-name: com.mysql.cj.jdbc.Driver            # mysql驱动包
