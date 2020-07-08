@@ -6,9 +6,9 @@ spring:
     name: redis-service
   #redis配置
   redis:
-    host: 127.0.0.1   #redis配置ip
+    host: localhost  #redis配置ip
     port: 6379
-    password: 123456   #密码使用双引号
+    password: 123456
 
 
     #采用lettuce方式连接
