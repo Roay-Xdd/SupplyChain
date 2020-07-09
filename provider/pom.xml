@@ -10,7 +10,8 @@
         <module>eureka_server7001</module>
         <module>supply_user8001</module>
         <module>supply_order8002</module>
-        <module>redis_service</module>
+        <module>gateway_service9527</module>
+        <module>redis_service8888</module>
     </modules>
     <packaging>pom</packaging>
     <!-- 统一管理jar包版本 -->
