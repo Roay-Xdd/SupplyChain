@@ -9,10 +9,12 @@
         <version>2.2.2.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-
-
     <groupId>com.qtummatrix</groupId>
+
+
     <artifactId>redis_service8888</artifactId>
+
+
     <version>1.0-SNAPSHOT</version>
 
     <properties>
