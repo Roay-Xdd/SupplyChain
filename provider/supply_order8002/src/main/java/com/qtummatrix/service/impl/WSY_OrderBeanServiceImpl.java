@@ -17,11 +17,24 @@ public class WSY_OrderBeanServiceImpl implements WSY_OrderBeanService {
     private WSY_OrderBeanMapper orderBeanMapper;
 
     @Override
-    public List<WSY_OrderBean> selectBySellerId(String sellerId, Integer orderStep) {
-        Map map = new HashMap();
-        map.put("sellerId",sellerId);
-        map.put("orderStep",orderStep);
-        List<WSY_OrderBean> wsy_orderBeans = orderBeanMapper.selectBySellerId(map);
+    public List<WSY_OrderBean> selectBySellerId() {
+        List<WSY_OrderBean> wsy_orderBeans = orderBeanMapper.selectBySellerId();
         return wsy_orderBeans;
+    }
+
+    @Override
+    public String updateOrderStepByorderId(String orderId,Integer orderStep) {
+
+        Map map = new HashMap();
+        map.put("orderId",orderId);
+        map.put("orderStep",orderStep);
+        int i = orderBeanMapper.updateOrderStepByorderId(map);
+
+        if (i>0){
+            return "配货成功";
+        }else {
+            return "配货失败";
+        }
+
     }
 }

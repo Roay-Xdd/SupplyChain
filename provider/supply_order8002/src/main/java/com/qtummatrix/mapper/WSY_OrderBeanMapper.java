@@ -33,6 +33,10 @@ public interface WSY_OrderBeanMapper extends BmInorderlistDao {
     @Override
     int updateByPrimaryKey(BmInorderlist record);
 
-    public List<WSY_OrderBean> selectBySellerId(Map map);
+    //查询所有采购单
+    public List<WSY_OrderBean> selectBySellerId();
+
+    //更改采购单状态
+    public int updateOrderStepByorderId(Map map);
 
 }
