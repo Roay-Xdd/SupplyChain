@@ -4,9 +4,7 @@ import com.qtummatrix.SjyBean.SupplyResult;
 import com.qtummatrix.server.SJY_Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,12 +29,16 @@ public class SJYEmployeeController {
      * @Author: Shi JiuYue
      * @Date 17:20 2020/7/7
      **/
+    //    解决跨域请求
+    @CrossOrigin(allowCredentials = "true",allowedHeaders = "*",
+        methods = {RequestMethod.DELETE, RequestMethod.GET,
+                RequestMethod.POST,RequestMethod.PUT,RequestMethod.HEAD},origins="*")
     @PostMapping("/EmployeeLogin")
     @ResponseBody
-    public SupplyResult EmployeeLogin(String tel, String password,
+    public SupplyResult EmployeeLogin(String username, String password,
      HttpServletRequest request, HttpServletResponse response){
 
-        SupplyResult supplyResult = sjyEmployee.selectEmployee(tel, password, request, response);
+        SupplyResult supplyResult = sjyEmployee.selectEmployee(username, password, request, response);
 
         return supplyResult;
     }

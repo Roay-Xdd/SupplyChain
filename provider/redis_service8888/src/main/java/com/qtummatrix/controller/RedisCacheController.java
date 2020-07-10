@@ -15,20 +15,21 @@ import java.util.List;
  * @Date 15:53 2020/7/7
  **/
 @RestController
+
 public class RedisCacheController {
     @Autowired
     private RedisCacheService redisCacheService;
 
     /**
      * 从redis中取
-     * @param key
+     * @param token
      * @return
      */
-    @RequestMapping("/get/{key}")
-    public CacheResult getFromRedis(@PathVariable("key") String key) {
-        CacheResult result = null;
+    @RequestMapping("/getFromRedis/{token}")
+    public CacheResult getFromRedis(@PathVariable("token") String token) {
+        CacheResult result = new CacheResult();
         try {
-            result = redisCacheService.get(key);
+            result = redisCacheService.get(token);
         } catch (Exception e) {
             e.printStackTrace();
             result = CacheResult.build(400, ExceptionUtil.getStackTrace(e));

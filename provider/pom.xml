@@ -10,7 +10,8 @@
         <module>eureka_server7001</module>
         <module>supply_user8001</module>
         <module>supply_order8002</module>
-        <module>radis_service</module>
+        <module>gateway_service9527</module>
+        <module>redis_service8888</module>
     </modules>
     <packaging>pom</packaging>
     <!-- 统一管理jar包版本 -->
@@ -34,7 +35,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>2.2.2.RELEASE</version>
+                <version>2.3.1.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

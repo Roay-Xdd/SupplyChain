@@ -1,15 +1,18 @@
 package com.qtummatrix.server.impl;
 
-import com.qtummatrix.SjyBean.RedisFeignClient;
+import com.qtummatrix.SjyBean.CookieUtils;
 import com.qtummatrix.SjyBean.SupplyResult;
 import com.qtummatrix.entity.SysEmployee;
 import com.qtummatrix.mapper.SJY_SysEmployeeMapper;
 import com.qtummatrix.server.SJY_Employee;
-import com.qtummatrix.util.CookieUtils;
+
+import com.qtummatrix.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -27,7 +30,13 @@ public class SJY_EmployeeImpl implements SJY_Employee {
     @Autowired(required = false)
     private SJY_SysEmployeeMapper sjySysEmployeeMapper;
 
-    private RedisFeignClient redisFeignClient;
+    @Autowired
+    private RedisUtil redisUtil;
+
+
+
+
+
 
 
     /**
@@ -37,7 +46,7 @@ public class SJY_EmployeeImpl implements SJY_Employee {
      **/
     @Override
     public SupplyResult selectEmployee(String tel, String password,
-    HttpServletRequest request, HttpServletResponse reponse) {
+    HttpServletRequest request, HttpServletResponse response) {
 
         SysEmployee sysEmployee = sjySysEmployeeMapper.selectByTel(tel);
         if (sysEmployee==null||sysEmployee.equals("")){
@@ -50,13 +59,24 @@ public class SJY_EmployeeImpl implements SJY_Employee {
         sysEmployee.setPassword(null);
         String token = sysEmployee.getToken();
 
-
-
         //将用户存入到redis中,并且设置过期时间为一天
-        redisFeignClient.setToRedis(token,sysEmployee,new Long(60*60*24));
+        redisUtil.set(token,sysEmployee,new Long(60*60*24));
 
         //添加cookie，cookie的有效期是关闭浏览器失效
-        CookieUtils.setCookie(request,reponse,"Supply_TOKEN",token);
+        Cookie cookie = new Cookie("Supply_TOKEN",token);
+        cookie.setMaxAge(60*60*24);
+        response.addCookie(cookie);
+
+
+        Cookie [] cookies = request.getCookies();
+
+        for (Cookie cookie1:cookies){
+            String s = cookie1.getName();
+            System.out.println(s.toString());
+            System.out.println(cookie1.getValue());
+        }
+
+
 
         return SupplyResult.ok(token);
     }

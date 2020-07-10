@@ -1,4 +1,6 @@
-package com.qtummatrix.util;
+package com.qtummatrix.SjyBean;
+
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +15,7 @@ import java.net.URLEncoder;
  * @Author: Shi JiuYue
  * @Date 17:23 2020/7/7
  **/
+@Component
 public final class CookieUtils {
 
     /**
