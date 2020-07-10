@@ -18,7 +18,7 @@ import java.util.Map;
  */
 
 @Controller
-@RequestMapping("api/user")
+@RequestMapping("api/PWL_ClientList")
 public class PWL_ClientListController {
 
     @Resource

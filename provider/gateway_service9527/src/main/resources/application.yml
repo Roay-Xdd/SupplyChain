@@ -6,14 +6,11 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: payment_routh #路由的ID，没有固定规则但要求唯一，建议配合服务名
-          uri: http://supply-user   #8001 supply_user的路径
+        - id: payment_routh
+          uri: lb://supply-service #8888 supply-service的路径
           predicates:
-            - Path=/payment/get/**   #断言,路径相匹配的进行路由
-        - id: payment_routh2
-          uri: http://supply-order #8002 supply_order的路径
-          predicates:
-            - Path=/payment/lb/**   #断言,路径相匹配的进行路由
+            - Path=/**    #断言,路径相匹配的进行路由
+
 eureka:
   instance:
     hostname: gateway9527
