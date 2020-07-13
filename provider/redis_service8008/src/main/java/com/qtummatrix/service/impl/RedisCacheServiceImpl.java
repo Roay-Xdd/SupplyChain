@@ -6,6 +6,7 @@ import com.qtummatrix.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import sun.misc.Cache;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -64,5 +65,10 @@ public class RedisCacheServiceImpl implements RedisCacheService {
         return CacheResult.ok(redisUtil.incr(key,delta));
     }
 
+    @Override
+    public CacheResult del(String token){
+        redisUtil.del(token);
+        return CacheResult.ok("删除成功");
+    }
 
 }

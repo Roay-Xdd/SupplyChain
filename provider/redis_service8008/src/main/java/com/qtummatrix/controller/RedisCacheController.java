@@ -155,4 +155,11 @@ public class RedisCacheController {
         }
         return result;
     }
+
+    @RequestMapping("/delToken/{token}")
+    public CacheResult del(@PathVariable("token")String token){
+        CacheResult del = redisCacheService.del(token);
+        return del;
+
+    }
 }
