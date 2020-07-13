@@ -6,6 +6,7 @@ import com.qtummatrix.entity.SysEmployee;
 import com.qtummatrix.mapper.SJY_SysEmployeeMapper;
 import com.qtummatrix.server.SJY_Employee;
 
+import com.qtummatrix.util.CacheResult;
 import com.qtummatrix.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -68,13 +69,6 @@ public class SJY_EmployeeImpl implements SJY_Employee {
         response.addCookie(cookie);
 
 
-        Cookie [] cookies = request.getCookies();
-
-        for (Cookie cookie1:cookies){
-            String s = cookie1.getName();
-            System.out.println(s.toString());
-            System.out.println(cookie1.getValue());
-        }
 
 
 
@@ -99,4 +93,25 @@ public class SJY_EmployeeImpl implements SJY_Employee {
 
         return SupplyResult.build(500,"修改失败");
     }
+
+
+
+    /**
+     * 方法描述: 员工退出，删除缓存
+     * @Author: Shi JiuYue
+     * @Date 14:56 2020/7/13
+     **/
+    @Override
+    public SupplyResult LogOutEmployee(String token){
+        RedisUtil redisUtil = new RedisUtil();
+        Object o = redisUtil.get(token);
+        if (o.equals("")||o==null){
+            return SupplyResult.ok("已经退出成功，无需操作");
+        }
+        redisUtil.del(token);
+        return SupplyResult.ok("退出成功");
+
+    }
+
+
 }
