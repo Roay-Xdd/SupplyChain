@@ -29,12 +29,7 @@ public interface SJY_Employee {
     public SupplyResult updateEmployeePassword(String tel,String newPassword);
 
 
-    /**
-     * 方法描述: 员工推出，删除缓存
-     * @Author: Shi JiuYue
-     * @Date 14:55 2020/7/13
-     **/
-    public SupplyResult LogOutEmployee(String token);
+
 
 
 }
