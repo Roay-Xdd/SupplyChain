@@ -59,4 +59,8 @@ public class WSY_OrderBean {
     private String tel; //电话
 
     private String address;//地址
+
+    private String warehouseCode;//仓库编号
+
+    private  String sname;//规格名称
 }

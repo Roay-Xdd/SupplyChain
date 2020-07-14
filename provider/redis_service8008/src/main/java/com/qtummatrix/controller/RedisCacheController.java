@@ -90,7 +90,7 @@ public class RedisCacheController {
      * @param time
      * @return
      */
-    @RequestMapping("/lpushAll")
+    @RequestMapping("/pushAll")
     public CacheResult leftPushAllList(@RequestParam("key") String key, @RequestBody List<Object> value, @RequestParam("time") long time){
         CacheResult result = null;
         try {

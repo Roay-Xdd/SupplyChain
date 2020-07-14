@@ -23,18 +23,35 @@ public class WSY_OrderBeanServiceImpl implements WSY_OrderBeanService {
     }
 
     @Override
-    public String updateOrderStepByorderId(String orderId,Integer orderStep) {
+    public List<WSY_OrderBean> selectOrderDetails(String orderId) {
+        List<WSY_OrderBean> wsy_orderBeans = orderBeanMapper.selectOrderDetails(orderId);
+        return wsy_orderBeans;
+    }
 
-        Map map = new HashMap();
-        map.put("orderId",orderId);
-        map.put("orderStep",orderStep);
-        int i = orderBeanMapper.updateOrderStepByorderId(map);
+    @Override
+    public Integer updatePickingByOrderId(String orderId) {
 
-        if (i>0){
-            return "配货成功";
-        }else {
-            return "配货失败";
-        }
+        int i = orderBeanMapper.updatePickingByOrderId(orderId);
 
+        return i;
+    }
+
+    @Override
+    public List<WSY_OrderBean> selectExamineByOrderId() {
+        List<WSY_OrderBean> wsy_orderBeans = orderBeanMapper.selectExamineByOrderId();
+        return wsy_orderBeans;
+    }
+
+    @Override
+    public List<WSY_OrderBean> selectExamineOrderDetails(String orderId) {
+        List<WSY_OrderBean> wsy_orderBeans = orderBeanMapper.selectExamineOrderDetails(orderId);
+        return wsy_orderBeans;
+    }
+
+    @Override
+    public Integer updateExamineByOrderId(String orderId) {
+        int i = orderBeanMapper.updateExamineByOrderId(orderId);
+
+        return i;
     }
 }

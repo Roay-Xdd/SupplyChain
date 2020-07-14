@@ -34,10 +34,21 @@ public interface WSY_OrderBeanMapper extends BmInorderlistDao {
     @Override
     int updateByPrimaryKey(BmInorderlist record);
 
-    //查询所有采购单
+    //理货主页面查询所有待配货采购单
     public List<WSY_OrderBean> selectBySellerId();
 
-    //更改采购单状态
-    public int updateOrderStepByorderId(Map map);
+    //开始配货页面查询所有待配货采购单
+    public List<WSY_OrderBean> selectOrderDetails(String orderId);
 
+    //更改采购单状态(配货)
+    public int updatePickingByOrderId(String orderId);
+
+    //出库主页面查询所有待验货采购单
+    public List<WSY_OrderBean> selectExamineByOrderId();
+
+    //验货出库页面查询待验货订单
+    public List<WSY_OrderBean> selectExamineOrderDetails(String orderId);
+
+    //更改采购单状态(验货)
+    public int updateExamineByOrderId(String orderId);
 }
