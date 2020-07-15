@@ -69,4 +69,12 @@ public interface RedisCacheService {
      */
     public CacheResult incr(String key, long delta);
 
+
+    /**
+     * 方法描述: redis删除token
+     * @Author: Shi JiuYue
+     * @Date 15:08 2020/7/13
+     **/
+    public CacheResult del(String token);
+
 }

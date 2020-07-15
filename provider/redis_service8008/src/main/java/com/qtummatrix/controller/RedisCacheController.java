@@ -90,7 +90,7 @@ public class RedisCacheController {
      * @param time
      * @return
      */
-    @RequestMapping("/lpushAll")
+    @RequestMapping("/pushAll")
     public CacheResult leftPushAllList(@RequestParam("key") String key, @RequestBody List<Object> value, @RequestParam("time") long time){
         CacheResult result = null;
         try {
@@ -154,5 +154,12 @@ public class RedisCacheController {
             result = CacheResult.build(400, ExceptionUtil.getStackTrace(e));
         }
         return result;
+    }
+
+    @RequestMapping("/delToken/{token}")
+    public CacheResult del(@PathVariable("token")String token){
+        CacheResult del = redisCacheService.del(token);
+        return del;
+
     }
 }

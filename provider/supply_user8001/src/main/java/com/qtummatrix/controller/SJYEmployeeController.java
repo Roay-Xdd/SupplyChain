@@ -2,6 +2,7 @@ package com.qtummatrix.controller;
 
 import com.qtummatrix.SjyBean.SupplyResult;
 import com.qtummatrix.server.SJY_Employee;
+import com.qtummatrix.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -57,7 +58,17 @@ public class SJYEmployeeController {
     }
 
 
-
+    /**
+     * 方法描述: 员工退出，缓存中删除员工信息
+     * @Author: Shi JiuYue
+     * @Date 15:02 2020/7/13
+     **/
+    @ResponseBody
+    @GetMapping("/LogOut")
+    public SupplyResult LogOutEmployee(String token){
+        SupplyResult supplyResult = sjyEmployee.LogOutEmployee(token);
+        return supplyResult;
+    }
 
 
 

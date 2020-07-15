@@ -6,6 +6,7 @@ import com.qtummatrix.entity.SysEmployee;
 import com.qtummatrix.mapper.SJY_SysEmployeeMapper;
 import com.qtummatrix.server.SJY_Employee;
 
+import com.qtummatrix.util.CacheResult;
 import com.qtummatrix.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -68,13 +69,6 @@ public class SJY_EmployeeImpl implements SJY_Employee {
         response.addCookie(cookie);
 
 
-        Cookie [] cookies = request.getCookies();
-
-        for (Cookie cookie1:cookies){
-            String s = cookie1.getName();
-            System.out.println(s.toString());
-            System.out.println(cookie1.getValue());
-        }
 
 
 
@@ -99,4 +93,10 @@ public class SJY_EmployeeImpl implements SJY_Employee {
 
         return SupplyResult.build(500,"修改失败");
     }
+
+
+
+
+
+
 }
