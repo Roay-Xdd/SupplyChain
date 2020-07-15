@@ -24,4 +24,17 @@
         </where>
     </select>
 
+<!--  根据仓库编号查询没有与之建立合作关系的店铺  -->
+    <select id="getClientListByWarehouseCode" resultType="com.qtummatrix.bean.PWL_ClientList">
+        select id,businessName,backImg from bm_member where id NOT in (SELECT sellerId FROM
+        bm_sellermechanism a,bm_warehouse b WHERE a.mechanismId = b.mechanismid AND
+        warehouseCode = #{warehouseCode})
+    </select>
+
+<!--  建立合作关系  -->
+    <insert id="addCooperation">
+        insert into bm_sellermechanism(isDeleted,sellerId,mechanismId) select
+		0,#{id},mechanismid from bm_warehouse where warehouseCode = #{warehouseCode}
+    </insert>
+
 </mapper>

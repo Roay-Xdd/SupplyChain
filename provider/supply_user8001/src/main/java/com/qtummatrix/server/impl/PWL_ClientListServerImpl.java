@@ -61,6 +61,31 @@ public class PWL_ClientListServerImpl implements PWL_ClientListServer {
     }
 
     /**
+     * @方法描述: 根据仓库编号查询没有与之建立合作关系的店铺
+     * @Author panwenlong
+     * @Date 10:17 2020/7/15
+    **/
+    @Override
+    public List<PWL_ClientList> getClientListByWarehouseCode(String warehouseCode) {
+        List<PWL_ClientList> clientLists = clientListMapper.getClientListByWarehouseCode(warehouseCode);
+        return clientLists;
+    }
+
+    /**
+     * @方法描述: 建立新合作关系
+     * @Author panwenlong
+     * @Date 10:18 2020/7/15
+    **/
+    @Override
+    public Integer addCooperation(Integer id,String warehouseCode) {
+        Map map = new HashMap();
+        map.put("id",id);
+        map.put("warehouseCode",warehouseCode);
+        Integer result = clientListMapper.addCooperation(map);
+        return result;
+    }
+
+    /**
      * @方法描述: 计算店铺与仓库的直线距离
      * @Author panwenlong
      * @Date 19:51 2020/7/7
