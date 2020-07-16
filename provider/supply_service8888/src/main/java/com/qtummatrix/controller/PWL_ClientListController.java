@@ -75,4 +75,12 @@ public class PWL_ClientListController {
         return  map;
     }
 
+    @RequestMapping("/customer/getById")
+    @ResponseBody
+    public Map<String,Object> getClientListByToken(Integer id){
+        Map map = new HashMap();
+        map = pwl_clientListServer80.getF_customerDetailById(id);
+        return  map;
+    }
+
 }

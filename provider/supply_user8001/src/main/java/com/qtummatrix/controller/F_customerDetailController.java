@@ -1,8 +1,12 @@
 package com.qtummatrix.controller;
 
+
 import com.qtummatrix.bean.F_customerDetail;
 import com.qtummatrix.server.F_customerDetailservice;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -21,11 +25,11 @@ public class F_customerDetailController {
      * @return
      */
     //    解决跨域请求
-    @CrossOrigin(allowCredentials = "true",allowedHeaders = "*",
-    methods = {RequestMethod.DELETE,RequestMethod.GET,
-            RequestMethod.POST,RequestMethod.PUT,RequestMethod.HEAD},origins="*")
-    @GetMapping("getById")
-    public Map<String,Object> getF_customerDetailById(  @RequestParam("id")  Integer id){
+//    @CrossOrigin(allowCredentials = "true",allowedHeaders = "*",
+//    methods = {RequestMethod.DELETE,RequestMethod.GET,
+//            RequestMethod.POST,RequestMethod.PUT,RequestMethod.HEAD},origins="*")
+    @GetMapping("/getById")
+    public Map<String,Object> getF_customerDetailById(@RequestParam("id")  Integer id){
         System.out.println("输出id"+id);
         Map map = new HashMap();
         List<F_customerDetail> f_customerDetail = cdc.getF_customerDetailById(id);

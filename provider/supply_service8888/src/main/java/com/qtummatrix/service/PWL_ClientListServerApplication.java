@@ -64,4 +64,18 @@ public class PWL_ClientListServerApplication implements PWL_ClientListServer80 {
         System.out.println("请求超时");
         return SupplyResult.build(500,"请求异常");
     }
+
+    /**
+     * @方法描述: 查询所有的熔断方法
+     * @Author panwenlong
+     * @Date 10:44 2020/7/10
+     **/
+    @Override
+    public Map<String, Object> getF_customerDetailById(Integer id) {
+        System.out.println("id为"+id+"的用户查询失败");
+        Map<String,Object> param = new HashMap<>();
+        param.put("product",null);
+        param.put("message","id为"+id+"的用户查询失败");
+        return param;
+    }
 }

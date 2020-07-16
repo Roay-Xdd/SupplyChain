@@ -31,4 +31,8 @@ public interface PWL_ClientListServer80 {
     public SupplyResult EmployeeLogin(@RequestParam("username")String username,
                                       @RequestParam("password")String password
                                      );
+
+
+    @GetMapping("/customer/getById")
+    public Map<String,Object> getF_customerDetailById(@RequestParam("id") Integer id);
 }

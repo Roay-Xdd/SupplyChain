@@ -30,10 +30,10 @@ public class TallyingController {
      */
     @RequestMapping("selectBySellerId")
     @ResponseBody
-    @CrossOrigin(allowCredentials = "true",allowedHeaders = "*",
-        methods = {RequestMethod.DELETE,RequestMethod.GET,
-                RequestMethod.POST,RequestMethod.PUT,RequestMethod.HEAD},origins="*")
-    public Object selectBySellerId(){
+//    @CrossOrigin(allowCredentials = "true",allowedHeaders = "*",
+//        methods = {RequestMethod.DELETE,RequestMethod.GET,
+//                RequestMethod.POST,RequestMethod.PUT,RequestMethod.HEAD},origins="*")
+    public List<WSY_OrderBean> selectBySellerId(){
         List<WSY_OrderBean> wsy_orderBeans = orderBeanService.selectBySellerId();
         return wsy_orderBeans;
     }
@@ -43,10 +43,10 @@ public class TallyingController {
      */
     @RequestMapping("selectOrderDetails")
     @ResponseBody
-    @CrossOrigin(allowCredentials = "true",allowedHeaders = "*",
-            methods = {RequestMethod.DELETE,RequestMethod.GET,
-                    RequestMethod.POST,RequestMethod.PUT,RequestMethod.HEAD},origins="*")
-    public Object selectOrderDetails(String orderId){
+//    @CrossOrigin(allowCredentials = "true",allowedHeaders = "*",
+//            methods = {RequestMethod.DELETE,RequestMethod.GET,
+//                    RequestMethod.POST,RequestMethod.PUT,RequestMethod.HEAD},origins="*")
+    public List<WSY_OrderBean> selectOrderDetails(String orderId){
         System.out.println(orderId+"=====================================================");
         List<WSY_OrderBean> wsy_orderBeans = orderBeanService.selectOrderDetails(orderId);
         for (WSY_OrderBean wsy_orderBean : wsy_orderBeans) {
@@ -62,9 +62,9 @@ public class TallyingController {
      */
     @RequestMapping("updatePickingByOrderId")
     @ResponseBody
-    @CrossOrigin(allowCredentials = "true",allowedHeaders = "*",
-            methods = {RequestMethod.DELETE,RequestMethod.GET,
-                    RequestMethod.POST,RequestMethod.PUT,RequestMethod.HEAD},origins="*")
+//    @CrossOrigin(allowCredentials = "true",allowedHeaders = "*",
+//            methods = {RequestMethod.DELETE,RequestMethod.GET,
+//                    RequestMethod.POST,RequestMethod.PUT,RequestMethod.HEAD},origins="*")
     public Object updatePickingByOrderId(String orderId){
         System.out.println(orderId+"配货=====================================================");
         int i  = orderBeanService.updatePickingByOrderId(orderId);
@@ -78,10 +78,10 @@ public class TallyingController {
      */
     @RequestMapping("selectExamineByOrderId")
     @ResponseBody
-    @CrossOrigin(allowCredentials = "true",allowedHeaders = "*",
-            methods = {RequestMethod.DELETE,RequestMethod.GET,
-                    RequestMethod.POST,RequestMethod.PUT,RequestMethod.HEAD},origins="*")
-    public Object selectExamineByOrderId(){
+//    @CrossOrigin(allowCredentials = "true",allowedHeaders = "*",
+//            methods = {RequestMethod.DELETE,RequestMethod.GET,
+//                    RequestMethod.POST,RequestMethod.PUT,RequestMethod.HEAD},origins="*")
+    public List<WSY_OrderBean> selectExamineByOrderId(){
         List<WSY_OrderBean> wsy_orderBeans = orderBeanService.selectExamineByOrderId();
         return wsy_orderBeans;
     }
@@ -91,10 +91,10 @@ public class TallyingController {
      */
     @RequestMapping("selectExamineOrderDetails")
     @ResponseBody
-    @CrossOrigin(allowCredentials = "true",allowedHeaders = "*",
-            methods = {RequestMethod.DELETE,RequestMethod.GET,
-                    RequestMethod.POST,RequestMethod.PUT,RequestMethod.HEAD},origins="*")
-    public Object selectExamineOrderDetails(String orderId){
+//    @CrossOrigin(allowCredentials = "true",allowedHeaders = "*",
+//            methods = {RequestMethod.DELETE,RequestMethod.GET,
+//                    RequestMethod.POST,RequestMethod.PUT,RequestMethod.HEAD},origins="*")
+    public List<WSY_OrderBean> selectExamineOrderDetails(String orderId){
         System.out.println(orderId+"验货出库页面开始验货=====================================================");
         List<WSY_OrderBean> wsy_orderBeans = orderBeanService.selectExamineOrderDetails(orderId);
         for (WSY_OrderBean wsy_orderBean : wsy_orderBeans) {
@@ -110,9 +110,9 @@ public class TallyingController {
      */
     @RequestMapping("updateExamineByOrderId")
     @ResponseBody
-    @CrossOrigin(allowCredentials = "true",allowedHeaders = "*",
-            methods = {RequestMethod.DELETE,RequestMethod.GET,
-                    RequestMethod.POST,RequestMethod.PUT,RequestMethod.HEAD},origins="*")
+//    @CrossOrigin(allowCredentials = "true",allowedHeaders = "*",
+//            methods = {RequestMethod.DELETE,RequestMethod.GET,
+//                    RequestMethod.POST,RequestMethod.PUT,RequestMethod.HEAD},origins="*")
     public Object updateExamineByOrderId(String orderId){
         System.out.println(orderId+"验货=====================================================");
         int i  = orderBeanService.updateExamineByOrderId(orderId);

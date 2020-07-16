@@ -1,37 +1,42 @@
 package com.qtummatrix.controller;
 
 import com.qtummatrix.bean.LSP_Logistics;
-import com.qtummatrix.service.LSP_LogisticsService;
-import org.apache.ibatis.annotations.Param;
+import com.qtummatrix.service.LSP_Server;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import java.util.List;
 
-//    解决跨域请求
-//@CrossOrigin(allowCredentials = "true",allowedHeaders = "*",
-//      methods = {RequestMethod.DELETE,RequestMethod.GET,
-//      RequestMethod.POST,RequestMethod.PUT,RequestMethod.HEAD},origins="*")
+/**
+ * 功能描述：
+ *
+ * @Author: Shi JiuYue
+ * @Date: 2020/7/16 19:17
+ */
 @Controller
-@RequestMapping("/api/LSP_Logistics")
+@RequestMapping("api/LSP_Logistics")
 public class LSP_Controller {
+
     @Resource
-    private LSP_LogisticsService lsp_logisticsService;
+    private LSP_Server lsp_server;
 
     @ResponseBody
     @RequestMapping("/selectLog")
     public List<LSP_Logistics> selectLog(@RequestParam("orderstep")Integer orderstep){
-        List<LSP_Logistics> lsp_logistics = lsp_logisticsService.selectLog(orderstep);
+        List<LSP_Logistics> lsp_logistics = lsp_server.selectLog(orderstep);
         return lsp_logistics;
     }
+
+
     @ResponseBody
     @RequestMapping("/updateLog")
     public Object updateLog(@RequestParam("orderid")String orderid,
                             @RequestParam("orderstep")Integer orderstep){
-        int i = lsp_logisticsService.updateLog(orderid, orderstep);
+        Object o = lsp_server.updateLog(orderid, orderstep);
+        int i = (int) o;
         return i;
     }
-
-
 }

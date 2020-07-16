@@ -11,8 +11,9 @@
         <module>supply_user8001</module>
         <module>supply_order8002</module>
         <module>gateway_service9527</module>
-        <module>redis_service8888</module>
-        <module>supply_service80</module>
+        <module>redis_service8008</module>
+        <module>supply_service8888</module>
+
     </modules>
     <packaging>pom</packaging>
     <!-- 统一管理jar包版本 -->
