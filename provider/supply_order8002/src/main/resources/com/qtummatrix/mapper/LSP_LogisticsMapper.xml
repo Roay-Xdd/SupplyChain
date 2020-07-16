@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qtummatrix.mapper.LSP_LogisticsMapper">
+  <resultMap id="BaseResultMap" type="com.qtummatrix.bean.LSP_Logistics">
+    <id column="orderId" jdbcType="VARCHAR" property="orderid" />
+    <result column="sellerId" jdbcType="INTEGER" property="sellerid" />
+    <result column="deliveryFee" jdbcType="DECIMAL" property="deliveryfee" />
+    <result column="amount" jdbcType="DECIMAL" property="amount" />
+    <result column="payType" jdbcType="INTEGER" property="paytype" />
+    <result column="orderStep" jdbcType="INTEGER" property="orderstep" />
+    <result column="deliveryAddId" jdbcType="VARCHAR" property="deliveryaddid" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="payTime" jdbcType="TIMESTAMP" property="paytime" />
+    <result column="orderState" jdbcType="INTEGER" property="orderstate" />
+    <result column="warehouserId" jdbcType="INTEGER" property="warehouserid" />
+    <result column="logisticsId" jdbcType="INTEGER" property="logisticsid" />
+    <result column="mark" jdbcType="VARCHAR" property="mark" />
+    <result column="buyNum" jdbcType="INTEGER" property="buynum" />
+    <result column="price " jdbcType="INTEGER" property="price" />
+    <result column="address " jdbcType="VARCHAR" property="address" />
+  </resultMap>
+<!--  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.qtummatrix.entity.BmInorderlist">-->
+<!--    <result column="orderStepRecord" jdbcType="LONGVARCHAR" property="ordersteprecord" />-->
+<!--  </resultMap>-->
+
+  <select id="selectLog"  resultType="com.qtummatrix.bean.LSP_Logistics">
+   select a.orderId orderId,a.createTime createTime,a.amount amount,a.orderStep orderStep,b.price price,
+   sum(b.buyNum) as buyNum ,c.address address from bm_inorderlist as a left join bm_inordergoodslist as b
+	 on a.orderId=b.orderId left JOIN bm_address as c  on c.sellerId=a.sellerId
+	 where a.orderStep=#{orderstep}
+    group by a.orderId,c.address,b.goodsId,b.price
+  </select>
+
+    <update id="updateLog" >
+      update bm_inorderlist set orderStep=#{orderstep} where
+      orderId=#{orderid}
+
+    </update>
+
+
+
+</mapper>
