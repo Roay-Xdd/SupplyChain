@@ -58,17 +58,6 @@ public class SJYEmployeeController {
     }
 
 
-    /**
-     * 方法描述: 员工退出，缓存中删除员工信息
-     * @Author: Shi JiuYue
-     * @Date 15:02 2020/7/13
-     **/
-    @ResponseBody
-    @GetMapping("/LogOut")
-    public SupplyResult LogOutEmployee(String token){
-        SupplyResult supplyResult = sjyEmployee.LogOutEmployee(token);
-        return supplyResult;
-    }
 
 
 
