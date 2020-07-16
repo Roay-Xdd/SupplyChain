@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qtummatrix.mapper.F_customerDetailMapper">
+
+    <resultMap id="BaseResultMap" type="com.qtummatrix.bean.F_customerDetail">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="BusinessName" jdbcType="VARCHAR" property="businessname" />
+        <result column="backImg" jdbcType="VARCHAR" property="backimg" />
+        <result column="tel" jdbcType="VARCHAR" property="tel" />
+        <result column="shopType" jdbcType="VARCHAR" property="shoptype" />
+        <result column="mapCode" jdbcType="VARCHAR" property="mapcode" />
+    </resultMap>
+    <select id="getF_customerDetailById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select id,BusinessName,backImg,shopType,tel,mapCode from bm_member where id=#{id}
+    </select>
+
+
+</mapper>

@@ -1,7 +1,10 @@
 package com.qtummatrix.service;
 
+import com.qtummatrix.util.SupplyResult;
 import org.springframework.stereotype.Component;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -53,5 +56,12 @@ public class PWL_ClientListServerApplication implements PWL_ClientListServer80 {
     public Map addCooperation(Integer id, String warehouseCode) {
         System.out.println("1111");
         return null;
+    }
+
+    @Override
+    public SupplyResult EmployeeLogin(String username, String password) {
+
+        System.out.println("请求超时");
+        return SupplyResult.build(500,"请求异常");
     }
 }

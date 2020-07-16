@@ -39,7 +39,7 @@ public class PWL_ClientListController {
     **/
     @GetMapping("getClientListByTel")
     @ResponseBody
-    public Map<String,Object> getClientListByTel(@RequestParam("token") String token){
+    public Map<String,Object> getClientListByToken(@RequestParam("token") String token){
         Map map = new HashMap();
 //      通过token获取电话号
 //        SysEmployee sysEmployee = (SysEmployee) redisUtil.get(token);

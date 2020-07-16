@@ -46,8 +46,7 @@ public class SJY_EmployeeImpl implements SJY_Employee {
      * @Date 20:55 2020/7/7
      **/
     @Override
-    public SupplyResult selectEmployee(String tel, String password,
-    HttpServletRequest request, HttpServletResponse response) {
+    public SupplyResult selectEmployee(String tel, String password) {
 
         SysEmployee sysEmployee = sjySysEmployeeMapper.selectByTel(tel);
         if (sysEmployee==null||sysEmployee.equals("")){
@@ -66,9 +65,11 @@ public class SJY_EmployeeImpl implements SJY_Employee {
         //添加cookie，cookie的有效期是关闭浏览器失效
         Cookie cookie = new Cookie("Supply_TOKEN",token);
         cookie.setMaxAge(60*60*24);
-        response.addCookie(cookie);
+
+//        response.addCookie(cookie);
 
 
+        System.out.println("进入了8001的service层");
 
 
 

@@ -1,12 +1,13 @@
 package com.qtummatrix.service;
 
+import com.qtummatrix.util.SupplyResult;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
+
 
 @FeignClient(value = "supply-user" ,fallback = PWL_ClientListServerApplication.class)
 public interface PWL_ClientListServer80 {
@@ -24,4 +25,10 @@ public interface PWL_ClientListServer80 {
     @RequestMapping("api/clientList/addCooperation")
     public Map addCooperation(@RequestParam("id") Integer id,
                               @RequestParam("warehouseCode") String warehouseCode);
+
+    
+    @PostMapping("/employee/EmployeeLogin")
+    public SupplyResult EmployeeLogin(@RequestParam("username")String username,
+                                      @RequestParam("password")String password
+                                     );
 }

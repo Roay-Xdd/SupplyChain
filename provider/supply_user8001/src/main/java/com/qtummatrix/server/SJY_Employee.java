@@ -18,8 +18,7 @@ public interface SJY_Employee {
      * @Author: Shi JiuYue
      * @Date 15:12 2020/7/7
      **/
-    public SupplyResult selectEmployee(String tel, String password,
-    HttpServletRequest request, HttpServletResponse reponse);
+    public SupplyResult selectEmployee(String tel, String password);
 
     /**
      * 方法描述: 员工根据手机号修改密码
