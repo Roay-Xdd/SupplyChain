@@ -11,8 +11,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableEurekaClient
 @EnableFeignClients
 @EnableHystrix
-public class Merchant80 {
+public class Supply_Server8888Application {
     public static void main(String[] args) {
-        SpringApplication.run(Merchant80.class,args);
+        SpringApplication.run(Supply_Server8888Application.class,args);
     }
 }

@@ -42,4 +42,16 @@ public class PWL_ClientListServerApplication implements PWL_ClientListServer80 {
         param.put("message","仓库编号为"+warehouseCode+"店铺名包含"+businessName+"的查询失败");
         return param;
     }
+
+    @Override
+    public Map getClientListByWarehouseCode(String warehouseCode) {
+        System.out.println("1111");
+        return null;
+    }
+
+    @Override
+    public Map addCooperation(Integer id, String warehouseCode) {
+        System.out.println("1111");
+        return null;
+    }
 }

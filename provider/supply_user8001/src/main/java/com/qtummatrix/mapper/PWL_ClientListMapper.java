@@ -14,5 +14,10 @@ public interface PWL_ClientListMapper {
 
 //    根据仓库编号和店铺名称查询（模糊查询）
     List<PWL_ClientList> getClientList(Map map);
+//   根据仓库编号查询没有与之建立合作关系的店铺
+    List<PWL_ClientList> getClientListByWarehouseCode(String warehouseCode);
+//    建立新合作关系
+    Integer addCooperation(Map map);
+
 
 }

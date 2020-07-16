@@ -18,4 +18,10 @@ public interface PWL_ClientListServer80 {
     public Map<String,Object> getClientListBy(@RequestParam("warehouseCode") String warehouseCode,
                                             @RequestParam("businessName") String businessName);
 
+    @RequestMapping("api/clientList/getClientListByWarehouseCode")
+    public Map getClientListByWarehouseCode (@RequestParam("warehouseCode") String warehouseCode);
+
+    @RequestMapping("api/clientList/addCooperation")
+    public Map addCooperation(@RequestParam("id") Integer id,
+                              @RequestParam("warehouseCode") String warehouseCode);
 }

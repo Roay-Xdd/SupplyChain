@@ -4,6 +4,7 @@ import com.qtummatrix.bean.PWL_ClientList;
 
 import com.qtummatrix.server.PWL_ClientListServer;
 
+
 import com.qtummatrix.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,7 +40,6 @@ public class PWL_ClientListController {
     @GetMapping("getClientListByTel")
     @ResponseBody
     public Map<String,Object> getClientListByTel(@RequestParam("token") String token){
-        System.out.println(111);
         Map map = new HashMap();
 //      通过token获取电话号
 //        SysEmployee sysEmployee = (SysEmployee) redisUtil.get(token);
@@ -70,4 +70,36 @@ public class PWL_ClientListController {
         return map;
     }
 
+    /**
+     * @方法描述: 根据仓库编号查询没有与之建立合作关系的店铺
+     * @Author panwenlong
+     * @Date 10:30 2020/7/15
+    **/
+    @ResponseBody
+    @RequestMapping("getClientListByWarehouseCode")
+    public Map getClientListByWarehouseCode (@RequestParam("warehouseCode") String warehouseCode){
+        Map map = new HashMap();
+        List<PWL_ClientList> clientLists = clientListServer.getClientListByWarehouseCode(warehouseCode);
+        map.put("store",clientLists);
+        return map;
+    }
+
+    /**
+     * @方法描述: 建立新合作关系
+     * @Author panwenlong
+     * @Date 10:30 2020/7/15
+    **/
+    @ResponseBody
+    @RequestMapping("addCooperation")
+    public Map addCooperation(@RequestParam("id") Integer id,
+                              @RequestParam("warehouseCode") String warehouseCode){
+        Map map = new HashMap();
+        Integer result = clientListServer.addCooperation(id, warehouseCode);
+        if (result == 1){
+            map.put("message","添加成功");
+        }else {
+            map.put("message","添加失败");
+        }
+        return map;
+    }
 }
